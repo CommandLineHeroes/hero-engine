@@ -1,27 +1,35 @@
 {
-  "name": "hero-engine",
-  "version": "0.1.0",
-  "description": "Open-source HTML5 adventure game engine",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CommandLineHeroes/hero-engine.git"
-  },
-  "keywords": [
-    "adventure",
-    "game",
-    "engine"
-  ],
-  "author": "Command Line Heroes",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/CommandLineHeroes/hero-engine/issues"
-  },
-  "homepage": "https://github.com/CommandLineHeroes/hero-engine",
-  "dependencies": {
-    "phaser": "^3.11.0"
-  }
+    "name": "hero-engine",
+    "version": "0.1.0",
+    "description": "Open-source HTML5 adventure game engine",
+    "main": "index.js",
+    "scripts": {
+        "test": "npm run eslint",
+        "eslint": "./node_modules/.bin/eslint src",
+        "eslint-fix": "./node_modules/.bin/eslint --fix src",
+        "precommit": "npm test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/CommandLineHeroes/hero-engine.git"
+    },
+    "keywords": [
+        "adventure",
+        "game",
+        "engine"
+    ],
+    "author": "Command Line Heroes",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/CommandLineHeroes/hero-engine/issues"
+    },
+    "homepage": "https://github.com/CommandLineHeroes/hero-engine",
+    "dependencies": {
+        "phaser": "^3.11.0"
+    },
+    "devDependencies": {
+        "eslint": "^5.4.0",
+        "eslint-config-google": "^0.9.1",
+        "git-pre-commit": "^2.1.4"
+    }
 }
