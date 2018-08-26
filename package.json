@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/CommandLineHeroes/hero-engine/issues"
   },
-  "homepage": "https://github.com/CommandLineHeroes/hero-engine#readme"
+  "homepage": "https://github.com/CommandLineHeroes/hero-engine",
+  "dependencies": {
+    "phaser": "^3.11.0"
+  }
 }
