@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="1" nextobjectid="46">
+ <tileset firstgid="1" name="kenney_platformerpack_industrial" tilewidth="70" tileheight="70" tilecount="112" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_001.png"/>
+  </tile>
+  <tile id="1">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_002.png"/>
+  </tile>
+  <tile id="2">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_003.png"/>
+  </tile>
+  <tile id="3">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_004.png"/>
+  </tile>
+  <tile id="4">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_005.png"/>
+  </tile>
+  <tile id="5">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_006.png"/>
+  </tile>
+  <tile id="6">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_007.png"/>
+  </tile>
+  <tile id="7">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_008.png"/>
+  </tile>
+  <tile id="8">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_009.png"/>
+  </tile>
+  <tile id="9">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_010.png"/>
+  </tile>
+  <tile id="10">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_011.png"/>
+  </tile>
+  <tile id="11">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_012.png"/>
+  </tile>
+  <tile id="12">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_013.png"/>
+  </tile>
+  <tile id="13">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_014.png"/>
+  </tile>
+  <tile id="14">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_015.png"/>
+  </tile>
+  <tile id="15">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_016.png"/>
+  </tile>
+  <tile id="16">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_017.png"/>
+  </tile>
+  <tile id="17">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_018.png"/>
+  </tile>
+  <tile id="18">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_019.png"/>
+  </tile>
+  <tile id="19">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_020.png"/>
+  </tile>
+  <tile id="20">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_021.png"/>
+  </tile>
+  <tile id="21">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_022.png"/>
+  </tile>
+  <tile id="22">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_023.png"/>
+  </tile>
+  <tile id="23">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_024.png"/>
+  </tile>
+  <tile id="24">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_025.png"/>
+  </tile>
+  <tile id="25">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_026.png"/>
+  </tile>
+  <tile id="26">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_027.png"/>
+  </tile>
+  <tile id="27">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_028.png"/>
+  </tile>
+  <tile id="28">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_029.png"/>
+  </tile>
+  <tile id="29">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_030.png"/>
+  </tile>
+  <tile id="30">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_031.png"/>
+  </tile>
+  <tile id="31">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_032.png"/>
+  </tile>
+  <tile id="32">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_033.png"/>
+  </tile>
+  <tile id="33">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_034.png"/>
+  </tile>
+  <tile id="34">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_035.png"/>
+  </tile>
+  <tile id="35">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_036.png"/>
+  </tile>
+  <tile id="36">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_037.png"/>
+  </tile>
+  <tile id="37">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_038.png"/>
+  </tile>
+  <tile id="38">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_039.png"/>
+  </tile>
+  <tile id="39">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_040.png"/>
+  </tile>
+  <tile id="40">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_041.png"/>
+  </tile>
+  <tile id="41">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_042.png"/>
+  </tile>
+  <tile id="42">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_043.png"/>
+  </tile>
+  <tile id="43">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_044.png"/>
+  </tile>
+  <tile id="44">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_045.png"/>
+  </tile>
+  <tile id="45">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_046.png"/>
+  </tile>
+  <tile id="46">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_047.png"/>
+  </tile>
+  <tile id="47">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_048.png"/>
+  </tile>
+  <tile id="48">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_049.png"/>
+  </tile>
+  <tile id="49">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_050.png"/>
+  </tile>
+  <tile id="50">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_051.png"/>
+  </tile>
+  <tile id="51">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_052.png"/>
+  </tile>
+  <tile id="52">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_053.png"/>
+  </tile>
+  <tile id="53">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_054.png"/>
+  </tile>
+  <tile id="54">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_055.png"/>
+  </tile>
+  <tile id="55">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_056.png"/>
+  </tile>
+  <tile id="56">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_057.png"/>
+  </tile>
+  <tile id="57">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_058.png"/>
+  </tile>
+  <tile id="58">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_059.png"/>
+  </tile>
+  <tile id="59">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_060.png"/>
+  </tile>
+  <tile id="60">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_061.png"/>
+  </tile>
+  <tile id="61">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_062.png"/>
+  </tile>
+  <tile id="62">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_063.png"/>
+  </tile>
+  <tile id="63">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_064.png"/>
+  </tile>
+  <tile id="64">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_065.png"/>
+  </tile>
+  <tile id="65">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_066.png"/>
+  </tile>
+  <tile id="66">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_067.png"/>
+  </tile>
+  <tile id="67">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_068.png"/>
+  </tile>
+  <tile id="68">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_069.png"/>
+  </tile>
+  <tile id="69">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_070.png"/>
+  </tile>
+  <tile id="70">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_071.png"/>
+  </tile>
+  <tile id="71">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_072.png"/>
+  </tile>
+  <tile id="72">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_073.png"/>
+  </tile>
+  <tile id="73">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_074.png"/>
+  </tile>
+  <tile id="74">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_075.png"/>
+  </tile>
+  <tile id="75">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_076.png"/>
+  </tile>
+  <tile id="76">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_077.png"/>
+  </tile>
+  <tile id="77">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_078.png"/>
+  </tile>
+  <tile id="78">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_079.png"/>
+  </tile>
+  <tile id="79">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_080.png"/>
+  </tile>
+  <tile id="80">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_081.png"/>
+  </tile>
+  <tile id="81">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_082.png"/>
+  </tile>
+  <tile id="82">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_083.png"/>
+  </tile>
+  <tile id="83">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_084.png"/>
+  </tile>
+  <tile id="84">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_085.png"/>
+  </tile>
+  <tile id="85">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_086.png"/>
+  </tile>
+  <tile id="86">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_087.png"/>
+  </tile>
+  <tile id="87">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_088.png"/>
+  </tile>
+  <tile id="88">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_089.png"/>
+  </tile>
+  <tile id="89">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_090.png"/>
+  </tile>
+  <tile id="90">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_091.png"/>
+  </tile>
+  <tile id="91">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_092.png"/>
+  </tile>
+  <tile id="92">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_093.png"/>
+  </tile>
+  <tile id="93">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_094.png"/>
+  </tile>
+  <tile id="94">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_095.png"/>
+  </tile>
+  <tile id="95">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_096.png"/>
+  </tile>
+  <tile id="96">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_097.png"/>
+  </tile>
+  <tile id="97">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_098.png"/>
+  </tile>
+  <tile id="98">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_099.png"/>
+  </tile>
+  <tile id="99">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_100.png"/>
+  </tile>
+  <tile id="100">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_101.png"/>
+  </tile>
+  <tile id="101">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_102.png"/>
+  </tile>
+  <tile id="102">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_103.png"/>
+  </tile>
+  <tile id="103">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_104.png"/>
+  </tile>
+  <tile id="104">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_105.png"/>
+  </tile>
+  <tile id="105">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_106.png"/>
+  </tile>
+  <tile id="106">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_107.png"/>
+  </tile>
+  <tile id="107">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_108.png"/>
+  </tile>
+  <tile id="108">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_109.png"/>
+  </tile>
+  <tile id="109">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_110.png"/>
+  </tile>
+  <tile id="110">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_111.png"/>
+  </tile>
+  <tile id="111">
+   <image width="70" height="70" source="../../Downloads/industrial/platformIndustrial_112.png"/>
+  </tile>
+ </tileset>
+ <group name="room1">
+  <imagelayer name="room1-bg" offsetx="-320" offsety="1120">
+   <image source="room1.png" width="2400" height="929"/>
+  </imagelayer>
+  <objectgroup name="room1-objects" offsetx="-32" offsety="1152">
+   <object id="32" name="door4" x="1756" y="328.333">
+    <properties>
+     <property name="destination" value="door2"/>
+    </properties>
+    <polygon points="0,0 162,-72 163,448 0,343"/>
+   </object>
+   <object id="33" name="door3" x="-128.016" y="276">
+    <properties>
+     <property name="destination" value="door1"/>
+    </properties>
+    <polygon points="0,0 163.697,67.703 163.697,421.113 0,522.667"/>
+   </object>
+   <object id="34" name="door3-entry" gid="40" x="87.9091" y="770.879" width="70" height="70">
+    <properties>
+     <property name="threshold" value="door3"/>
+    </properties>
+   </object>
+   <object id="35" gid="40" x="1712.15" y="740.576" width="70" height="70"/>
+   <object id="45" name="door3-entry" gid="40" x="87.9091" y="770.879" width="70" height="70">
+    <properties>
+     <property name="threshold" value="door3"/>
+    </properties>
+   </object>
+  </objectgroup>
+ </group>
+ <group name="room0">
+  <properties>
+   <property name="description" value="A barren purple room.  Three computer terminals are embedded in the wall."/>
+   <property name="distance" type="float" value="10"/>
+   <property name="onenter" value="showDescription"/>
+   <property name="onexit" value=""/>
+   <property name="slopey" type="float" value="10"/>
+  </properties>
+  <imagelayer name="room0-bg" offsetx="-320" offsety="-32">
+   <image source="room1.png" width="2400" height="929"/>
+  </imagelayer>
+  <objectgroup name="room0-objects" offsetx="1.33333" offsety="-4">
+   <object id="1" name="term2" gid="45" x="704" y="544" width="126.667" height="126.667">
+    <properties>
+     <property name="conversation" type="file" value=""/>
+     <property name="description" value="A computer terminal.  Unintelligible text sits on the screen."/>
+    </properties>
+   </object>
+   <object id="25" name="term0" type="vendor" gid="31" x="384" y="544" width="128" height="128">
+    <properties>
+     <property name="description" value="A computer terminal.  The screen appears to be off."/>
+     <property name="onclick" value="buy barrel0 300 | shutdown"/>
+    </properties>
+   </object>
+   <object id="26" name="term1" gid="32" x="544" y="544" width="128" height="128">
+    <properties>
+     <property name="description" value="A computer terminal.  The screen appears to be off."/>
+    </properties>
+   </object>
+   <object id="28" name="PLAYER_START" gid="83" x="-40.8108" y="841" width="212" height="396"/>
+   <object id="32" name="door1" x="1725" y="326">
+    <properties>
+     <property name="destination" value="door3"/>
+    </properties>
+    <polygon points="0,0 162,-72 163,448 0,343"/>
+   </object>
+   <object id="33" name="door2" x="-159.667" y="282.667">
+    <properties>
+     <property name="destination" value="door4"/>
+    </properties>
+    <polygon points="0,0 164.333,66.4076 164.333,413.056 0,512.667"/>
+   </object>
+   <object id="40" gid="75" x="1216" y="384" width="70" height="70"/>
+   <object id="41" gid="74" x="1152" y="384" width="70" height="70"/>
+   <object id="42" gid="73" x="1088" y="384" width="70" height="70"/>
+   <object id="43" name="information" gid="106" x="-245.281" y="-123.869" width="370.685" height="370.685">
+    <properties>
+     <property name="price" type="float" value="300"/>
+    </properties>
+   </object>
+  </objectgroup>
+ </group>
+</map>
