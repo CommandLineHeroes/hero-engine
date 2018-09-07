@@ -4,7 +4,7 @@
     "description": "Open-source HTML5 adventure game engine",
     "main": "index.js",
     "scripts": {
-        "test": "npm run eslint",
+        "test": "npm run eslint-fix",
         "eslint": "./node_modules/.bin/eslint src",
         "eslint-fix": "./node_modules/.bin/eslint --fix src",
         "precommit": "npm test"
