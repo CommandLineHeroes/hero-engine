@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../node_modules/phaser/dist/phaser.min.js"></script>
+</head>
+<body>
+
+<script>
+    var config = {
+        type: Phaser.AUTO,
+        width: 1000,
+        height: 725,
+        scene: {
+            preload: preload,
+            create: create
+        }
+    };
+
+    var game = new Phaser.Game(config);
+
+    function preload ()
+    {
+        this.load.image('tiles', '../draft/livingRoom.jpg');
+        this.load.tilemapTiledJSON('map', '../draft/foo.json');
+    }
+    function create ()
+    {
+        let map = this.make.tilemap({ key: 'map' });
+
+        let tiles = map.addTilesetImage('living_room', 'tiles');
+
+        map.createStaticLayer('room', tiles, 0, 0);
+        map.createStaticLayer('objects', tiles, 0, 0);
+    }
+</script>
+
+</body>
+</html>
