@@ -8,29 +8,47 @@
 <script>
     var config = {
         type: Phaser.AUTO,
-        width: 1000,
-        height: 725,
+        width: 1200,
+        height: 929,
         scene: {
             preload: preload,
-            create: create
+            create: create,
+            update: update,
         }
     };
 
     var game = new Phaser.Game(config);
+    let targetImg;
+    let direction = 3;
 
     function preload ()
     {
-        this.load.image('tiles', '../draft/livingRoom.jpg');
-        this.load.tilemapTiledJSON('map', '../draft/foo.json');
+        this.load.image('room1_img', '../draft/room1.png');
+        this.load.tilemapTiledJSON('map', '../draft/justroomimage.json');
+
+        this.load.image('target', '../draft/target.png');
     }
+
     function create ()
     {
         let map = this.make.tilemap({ key: 'map' });
 
-        let tiles = map.addTilesetImage('living_room', 'tiles');
+        let tiles = map.addTilesetImage('room1', 'room1_img');
 
-        map.createStaticLayer('room', tiles, 0, 0);
-        map.createStaticLayer('objects', tiles, 0, 0);
+        map.createStaticLayer('room_map', tiles, 0, 0);
+
+        targetImg = this.add.image(600, 464.5, 'target');
+
+        this.cameras.main.startFollow(targetImg);
+    }
+
+    function update() {
+        if (targetImg.x >= 1800)
+            direction *= -1;
+        else if (targetImg.x < 600)
+            direction *= -1;
+
+        targetImg.x += direction;
     }
 </script>
 
