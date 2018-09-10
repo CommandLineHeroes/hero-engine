@@ -25,3 +25,5 @@ adventure games.
 ### Community
 
 ## Command Line Heroes: The Game
+
+https://www.redhat.com/en/blog/command-line-heroes-game
