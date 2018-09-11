@@ -70,5 +70,5 @@ Michael Clayton [@mwcz](https://twitter.com/mwcz)
 [#CommandLinePod](https://twitter.com/hashtag/CommandLinePod?src=hash)
 
 ## Command Line Heroes: The Game
-
-https://www.redhat.com/en/blog/command-line-heroes-game
+Future Git Repo: [clh-the-game](https://github.com/CommandLineHeroes/clh-the-game)
+Interview about the game: https://www.redhat.com/en/blog/command-line-heroes-game
