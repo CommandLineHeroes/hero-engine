@@ -9,7 +9,7 @@ We're calling it a meta-engine because it is not a full game engine on it's own,
 The engine will provide game developers with an integration between Tiled and Phaser3 that will allow for easy adventure-game-like level creation.  As well as common functions and UI elements that are common among all
 adventure games.  If you're not sure what an adventure game is, [Monkey Island](https://en.wikipedia.org/wiki/The_Secret_of_Monkey_Island), is a great example of the adventure game genre.
 
-This engine will be used to create "Command Line Heroes: The Game" announced on [Episode 1](https://www.redhat.com/en/command-line-heroes/season-2/press-start) of Season 2 of the [Command Line Heroes Podcast](https://www.redhat.com/en/command-line-heroes).  See more about the game [below](#Command-Line-Heroes:-The-Game).
+This engine will be used to create "Command Line Heroes: The Game" announced on [Episode 1](https://www.redhat.com/en/command-line-heroes/season-2/press-start) of Season 2 of the [Command Line Heroes Podcast](https://www.redhat.com/en/command-line-heroes).  See more about the game [below](#Command-Line-Heroes-The-Game).
 
 We are creating a new engine because we couldn't find any existing open source HTML5 adventure game creators out there. But if you know of any open source adventure game engines for the web let us know!
 
