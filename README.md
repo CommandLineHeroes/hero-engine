@@ -1,4 +1,4 @@
-![Hero Engine](https://user-images.githubusercontent.com/3926730/45321901-9fd04500-b514-11e8-800c-cc76b573b303.png)
+![Hero Engine](https://user-images.githubusercontent.com/3926730/45370277-e1fd9300-b5b5-11e8-80f9-c4249af4d5b2.png)
 
 
 # Hero Engine
