@@ -65,7 +65,7 @@ Jared Sprague [@caramelcode](https://twitter.com/caramelcode)
 
 Michael Clayton [@mwcz](https://twitter.com/mwcz)
 
-[Command Line Heroe's](https://www.redhat.com/en/command-line-heroes)
+[Command Line Heroes](https://www.redhat.com/en/command-line-heroes)
 
 [#CommandLinePod](https://twitter.com/hashtag/CommandLinePod?src=hash)
 
