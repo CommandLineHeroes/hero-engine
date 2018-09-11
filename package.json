@@ -4,10 +4,11 @@
     "description": "Open-source HTML5 adventure game engine",
     "main": "index.js",
     "scripts": {
-        "test": "npm run eslint-fix",
+        "test": "npm run eslint",
         "eslint": "./node_modules/.bin/eslint src",
         "eslint-fix": "./node_modules/.bin/eslint --fix src",
-        "precommit": "npm test"
+        "precommit": "npm run eslint-fix",
+        "examples": "node_modules/http-server/bin/http-server examples/"
     },
     "repository": {
         "type": "git",
@@ -28,8 +29,10 @@
         "phaser": "^3.12.0"
     },
     "devDependencies": {
+        "browser-sync": "^2.24.7",
         "eslint": "^5.5.0",
         "eslint-config-google": "^0.9.1",
-        "git-pre-commit": "^2.1.4"
+        "git-pre-commit": "^2.1.4",
+        "http-server": "^0.11.1"
     }
 }
