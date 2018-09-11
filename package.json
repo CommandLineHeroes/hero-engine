@@ -8,7 +8,7 @@
         "eslint": "./node_modules/.bin/eslint src",
         "eslint-fix": "./node_modules/.bin/eslint --fix src",
         "precommit": "npm run eslint-fix",
-        "examples": "node_modules/http-server/bin/http-server examples/ -o"
+        "examples": "node ./node_modules/http-server/bin/http-server examples/ -o"
     },
     "repository": {
         "type": "git",
