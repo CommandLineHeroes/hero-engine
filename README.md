@@ -17,7 +17,7 @@ We are creating a new engine because we couldn't find any existing open source H
 
     npm install
 
-## Eamples
+## Examples
 
     npm run examples
 
@@ -52,23 +52,23 @@ Docs:
 ### How to get Help
 
 1. Post a question in the repo [issues](https://github.com/CommandLineHeroes/hero-engine/issues)
-2. Ask a question in real-time in our public Discord [server](https://discord.gg/rpnmpVj)
+2. Ask a question in real-time in our [public Discord server](https://discord.gg/rpnmpVj)
 3. Send a tweet to one of the twitter links below [social](#social)
 
 ## Community
 
-Join our public Discord server: https://discord.gg/rpnmpVj
+Join our [public Discord server](https://discord.gg/rpnmpVj)!
 
 ## Social
 
-Jared Sprague [@caramelcode](https://twitter.com/caramelcode)
-
-Michael Clayton [@mwcz](https://twitter.com/mwcz)
-
-[Command Line Heroes](https://www.redhat.com/en/command-line-heroes)
-
-[#CommandLinePod](https://twitter.com/hashtag/CommandLinePod?src=hash)
+ - Jared Sprague [@caramelcode](https://twitter.com/caramelcode)
+ - Michael Clayton [@mwcz](https://twitter.com/mwcz)
+ - [Command Line Heroes](https://www.redhat.com/en/command-line-heroes)
+ - [#CommandLinePod](https://twitter.com/hashtag/CommandLinePod?src=hash)
 
 ## Command Line Heroes: The Game
-* Future Git Repo: [clh-the-game](https://github.com/CommandLineHeroes/clh-the-game)
+
+The Hero Engine is being built alongside *Command Line Heroes: The Game*, an adventure game based on themes from the [Command Line Heroes](https://www.redhat.com/en/command-line-heroes) podcast.
+
+* Future git repo for the game: [clh-the-game](https://github.com/CommandLineHeroes/clh-the-game)
 * Interview about the game: https://www.redhat.com/en/blog/command-line-heroes-game
