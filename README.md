@@ -27,7 +27,7 @@ Everyone is invited to contribute to this project.  All types of contributions a
 
 Before we can start work on the actual Command Line Heroes adventure game we need to commplete at least the first two milestones listed below.  The best way you can help right now is by working on one of the [issues](https://github.com/CommandLineHeroes/hero-engine/issues) in the Reference Room milestone.
 
-We are also learning Phaser3 and Tiled as we go so the The Reference Room is a proof of concept for the base level features we need for a bear bones adventure game organized into a series of examples.
+We are also learning Phaser3 and Tiled as we go so the The Reference Room is a proof of concept for the base level features we need for a bare bones adventure game organized into a series of examples.
 
 ### Milestones
 
