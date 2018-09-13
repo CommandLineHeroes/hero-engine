@@ -25,7 +25,7 @@ We are creating a new engine because we couldn't find any existing open source H
 
 Everyone is invited to contribute to this project.  All types of contributions are welcome.  We share the same inclusivity values of the [P5.js community](https://p5js.org/community/).
 
-Before we can start work on the actual Command Line Heroes adventure game we need to commplete at least the first two milestones listed below.  The best way you can help right now is by working on one of the [issues](https://github.com/CommandLineHeroes/hero-engine/issues) in the Reference Room milestone.
+Before we can start work on the actual Command Line Heroes adventure game we need to complete at least the first two milestones listed below.  The best way you can help right now is by working on one of the [issues](https://github.com/CommandLineHeroes/hero-engine/issues) in the Reference Room milestone.
 
 We are also learning Phaser3 and Tiled as we go so the The Reference Room is a proof of concept for the base level features we need for a bare bones adventure game organized into a series of examples.
 
