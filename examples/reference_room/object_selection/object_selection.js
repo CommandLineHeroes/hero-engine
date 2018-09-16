@@ -4,7 +4,7 @@ const config = {
     height: 929,
     scene : {
         preload: preload,
-        create : create
+        create : create,
     },
 };
 
@@ -31,7 +31,7 @@ function create() {
     // add the room_map layer to the scene
     map.createStaticLayer('room_map', tiles, 0, 0);
     // create sprites for the objects layer
-    map.createFromObjects('objects', 'window', {key: 'window'});
+    map.createFromObjects('objects', 'window', { key: 'window' });
 
     this.input.on('pointerup', checkObjectSelection, this);
 }
@@ -46,33 +46,33 @@ function checkObjectSelection(pointer) {
 
     let selectedObject = null;
     for (let object of objectLayer.objects) {
-	// check if object is a polygon
-	if (object.hasOwnProperty('polyline')) {
-	    // each point on the polyline is relative to it's parent object's position,
-	    // so need to map them to world values
-	    let points = object.polyline.map((value) => {
-		return {
-		    x: value.x + object.x,
-		    y: value.y + object.y
-		};
-	    });
-	    let polygon = new Phaser.Geom.Polygon(points);
-	    let containsPoint = polygon.contains(x, y);
-	    if (containsPoint) {
-		selectedObject = object;
-		break;
-	    }
-	}
-	else {
-	    // not a polygon, so can just check against x,y,width,height
-	    if (x >= object.x && x <= object.x + object.width
-		&& y >= object.y - object.height && y <= object.y) {
-		selectedObject = object;
-		break;
-	    }
-	}
+        // check if object is a polygon
+        if (object.hasOwnProperty('polyline')) {
+            // each point on the polyline is relative to it's parent object's position,
+            // so need to map them to world values
+            let points = object.polyline.map((value) => {
+                return {
+                    x: value.x + object.x,
+                    y: value.y + object.y,
+                };
+            });
+            let polygon = new Phaser.Geom.Polygon(points);
+            let containsPoint = polygon.contains(x, y);
+            if (containsPoint) {
+                selectedObject = object;
+                break;
+            }
+        }
+        else {
+            // not a polygon, so can just check against x,y,width,height
+            if (x >= object.x && x <= object.x + object.width
+                && y >= object.y - object.height && y <= object.y) {
+                selectedObject = object;
+                break;
+            }
+        }
     }
     if (selectedObject) {
-	console.log('selected object description:' + selectedObject.properties['description']);
+        console.log('selected object description:' + selectedObject.properties['description']);
     }
 }
