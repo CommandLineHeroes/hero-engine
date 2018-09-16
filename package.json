@@ -26,7 +26,8 @@
     },
     "homepage": "https://github.com/CommandLineHeroes/hero-engine",
     "dependencies": {
-        "phaser": "^3.12.0"
+        "phaser": "^3.12.0",
+        "phaser-animated-tiles": "^2.0.2"
     },
     "devDependencies": {
         "browser-sync": "^2.24.7",
