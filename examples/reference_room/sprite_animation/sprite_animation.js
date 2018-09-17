@@ -50,7 +50,7 @@ function create() {
 
     // Create the player sprite animation config
     let config = {
-        key: 'walk',
+        key   : 'walk',
         frames: this.anims.generateFrameNumbers('player_sheet', {}),
         repeat: -1,
     };
