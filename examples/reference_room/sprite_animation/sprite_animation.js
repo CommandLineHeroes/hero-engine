@@ -10,19 +10,19 @@ const config = {
 };
 
 new Phaser.Game(config);
-let targetImg;
 let direction = 8;
+let player;
 
 function preload() {
     // load the tileset image which is just a single tile for the background room
     this.load.image('room1_img', '../../assets/images/room1.png');
     this.load.image('wall_terminal_img', '../../assets/images/terminal_5x.png');
 
+    // Load the player sprite sheet
+    this.load.spritesheet('player_sheet', '../../assets/images/player_sheet.png', { frameWidth: 72, frameHeight: 97 });
+
     // load the tilemap exported from Tiled
     this.load.tilemapTiledJSON('map', '../../assets/tilemaps/animated_room.json');
-
-    // load the target image that the camera will follow
-    this.load.image('target', '../../assets/images/target.png');
 
     // Load the Animated Tiles Plugin: https://github.com/nkholski/phaser-animated-tiles
     this.load.scenePlugin('animatedTiles', AnimatedTiles, 'animatedTiles', 'animatedTiles');
@@ -48,19 +48,40 @@ function create() {
     // set the camera bounds to the edges of the room
     this.cameras.main.setBounds(0, 0, 2400, 929);
 
+    // Create the player sprite animation config
+    let config = {
+        key: 'walk',
+        frames: this.anims.generateFrameNumbers('player_sheet', {}),
+        repeat: -1,
+    };
+
+    // Create the walk animation
+    this.anims.create(config);
+
+    // Create the player sprite
+    player = this.add.sprite(300, 700, 'player');
+
+    // Make player a bit bigger
+    player.scaleX = 2;
+    player.scaleY = 2;
+
+    // Start the walking animation
+    player.anims.play('walk');
+
     // Camera follows the target image
-    targetImg = this.add.image(300, 464.5, 'target');
-    this.cameras.main.startFollow(targetImg);
+    this.cameras.main.startFollow(player);
 }
 
 function update() {
     // Move the target image back and forth across the room
-    if (targetImg.x >= 2000) {
+    if (player.x >= 2000) {
         direction *= -1;
+        player.toggleFlipX(); // make him face the right way
     }
-    else if (targetImg.x < 300) {
+    else if (player.x < 300) {
         direction *= -1;
+        player.toggleFlipX();
     }
 
-    targetImg.x += direction;
+    player.x += direction;
 }
