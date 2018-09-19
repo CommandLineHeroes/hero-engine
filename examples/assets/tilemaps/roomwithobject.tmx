@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="13">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="21">
  <tileset firstgid="1" name="room1" tilewidth="2400" tileheight="929" tilecount="1" columns="1">
   <image source="../images/room1.png" width="2400" height="929"/>
  </tileset>
  <tileset firstgid="2" name="window" tilewidth="130" tileheight="97" tilecount="1" columns="1">
   <image source="../images/window.png" width="130" height="97"/>
+ </tileset>
+ <tileset firstgid="3" name="light_switch" tilewidth="64" tileheight="64" tilecount="1" columns="1">
+  <image source="../images/button.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="4" name="light" tilewidth="64" tileheight="83" tilecount="1" columns="1">
+  <image source="../images/light_off.png" width="64" height="83"/>
  </tileset>
  <layer name="room_map" width="100" height="100">
   <data encoding="base64">
@@ -27,6 +33,16 @@
     <property name="description" value="A door exiting the room to the left."/>
    </properties>
    <polyline points="0,0 0,512 164,408 164,66 2,0"/>
+  </object>
+  <object id="19" name="light_switch" type="trigger_object" gid="3" x="890" y="460" width="64" height="64">
+   <properties>
+    <property name="onUse" value="toggle ceiling_light"/>
+   </properties>
+  </object>
+  <object id="20" name="ceiling_light" type="room_object" gid="4" x="888" y="225" width="64" height="83">
+   <properties>
+    <property name="description" value="ceiling light"/>
+   </properties>
   </object>
  </objectgroup>
  <objectgroup name="modifiers">

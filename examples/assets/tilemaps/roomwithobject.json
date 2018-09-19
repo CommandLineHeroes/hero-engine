@@ -34,7 +34,7 @@
                  "type":"room_object",
                  "visible":true,
                  "width":130,
-                 "x":513.666666666667,
+                 "x":513.667,
                  "y":480
                 }, 
                 {
@@ -54,7 +54,7 @@
                  "type":"room_object",
                  "visible":true,
                  "width":130,
-                 "x":721.666666666667,
+                 "x":721.667,
                  "y":480
                 }, 
                 {
@@ -96,6 +96,46 @@
                  "width":0,
                  "x":162,
                  "y":312
+                }, 
+                {
+                 "gid":3,
+                 "height":64,
+                 "id":19,
+                 "name":"light_switch",
+                 "properties":
+                    {
+                     "onUse":"toggle ceiling_light"
+                    },
+                 "propertytypes":
+                    {
+                     "onUse":"string"
+                    },
+                 "rotation":0,
+                 "type":"trigger_object",
+                 "visible":true,
+                 "width":64,
+                 "x":890,
+                 "y":460
+                }, 
+                {
+                 "gid":4,
+                 "height":83,
+                 "id":20,
+                 "name":"ceiling_light",
+                 "properties":
+                    {
+                     "description":"ceiling light"
+                    },
+                 "propertytypes":
+                    {
+                     "description":"string"
+                    },
+                 "rotation":0,
+                 "type":"room_object",
+                 "visible":true,
+                 "width":64,
+                 "x":888,
+                 "y":225
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -124,7 +164,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":13,
+ "nextobjectid":21,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.1.2",
@@ -155,6 +195,32 @@
          "tilecount":1,
          "tileheight":97,
          "tilewidth":130
+        }, 
+        {
+         "columns":1,
+         "firstgid":3,
+         "image":"..\/images\/button.png",
+         "imageheight":64,
+         "imagewidth":64,
+         "margin":0,
+         "name":"light_switch",
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":64,
+         "tilewidth":64
+        }, 
+        {
+         "columns":1,
+         "firstgid":4,
+         "image":"..\/images\/light_off.png",
+         "imageheight":83,
+         "imagewidth":64,
+         "margin":0,
+         "name":"light",
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":83,
+         "tilewidth":64
         }],
  "tilewidth":32,
  "type":"map",
