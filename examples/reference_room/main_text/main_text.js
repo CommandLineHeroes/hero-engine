@@ -8,10 +8,13 @@ const config = {
     },
 };
 
-new Phaser.Game(config);
+var game = new Phaser.Game(config);
+var text = null;
 let map = null;
+var graphics;
 
 function preload() {
+    //TODO: Add Dialog Manager init here
     // load the tileset image which is just a single tile for the background room
     this.load.image('room1_img', '../../assets/images/room1.png');
     this.load.image('window', '../../assets/images/window.png');
@@ -74,6 +77,18 @@ function checkObjectSelection(pointer) {
     }
     if (selectedObject) {
         //TODO: Dialog creation should happen here per requirements. We should also destroy or hide any other dialog currently displayed
+        //// WARNING: Hardcoding a minimal textbox to display.
+        graphics = this.add.graphics({ fillStyle: { color: 0xffffff } });
+        let topPadding = 50;
+        let leftPadding = 40;
+        dialogBox = new Phaser.Geom.Rectangle(config.width-(config.width*11/12), config.height-(config.height*5/16), config.width*5/6, config.width*1/6);
+        graphics.fillRectShape(dialogBox);
+        var style = {
+          font: "24px Arial",
+          fill: "#ff0044",
+          align: "center",
+          "backgroundColor" : "#ffffff"};
+        var text = this.add.text(dialogBox.x+leftPadding, dialogBox.y+topPadding, 'selected object description: ' + selectedObject.properties['description'], style);
         console.log('selected object description:' + selectedObject.properties['description']);
     }
 }
