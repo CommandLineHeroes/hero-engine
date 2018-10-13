@@ -1,27 +1,38 @@
 {
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "modules": true
+        }
+    },
+    "plugins": ["prettier"],
     "env": {
         "browser": true,
         "es6": true,
         "node": true
     },
-    "extends": [
-        "eslint:recommended",
-        "google"
-    ],
+    "extends": ["eslint:recommended", "plugin:import/errors"],
+    "globals": {
+        "Phaser": true
+    },
+    "settings": {
+        "import/core-modules": ["phaser"]
+    },
     "rules": {
         "no-multi-spaces": "off",
         "no-console": "off",
         "camelcase": "off",
         "padded-blocks": "off",
-        "curly": [
-            "error",
-            "multi-line",
-            "consistent"
+        "prettier/prettier": [
+            "warn",
+            {
+                "singleQuote": true
+            }
         ],
-        "object-curly-spacing": [
-            "error",
-            "always"
-        ],
+        "curly": ["error", "multi-line", "consistent"],
+        "object-curly-spacing": ["error", "always"],
         "key-spacing": [
             "error",
             {
@@ -32,23 +43,29 @@
                 }
             }
         ],
-        "new-cap": [
-            "error"
-        ],
+        "new-cap": ["error"],
         "spaced-comment": [
             "error",
             "always",
             {
                 "line": {
-                    "exceptions": [
-                        "/"
-                    ]
+                    "exceptions": ["/"]
                 },
                 "block": {
-                    "exceptions": [
-                        "*"
-                    ],
+                    "exceptions": ["*"],
                     "balanced": true
+                }
+            }
+        ],
+        "require-jsdoc": [
+            "error",
+            {
+                "require": {
+                    "FunctionDeclaration": false,
+                    "MethodDefinition": false,
+                    "ClassDeclaration": false,
+                    "ArrowFunctionExpression": false,
+                    "FunctionExpression": false
                 }
             }
         ],
@@ -71,13 +88,8 @@
                 "allowTemplateLiterals": true
             }
         ],
-        "no-unused-vars": [
-            "error"
-        ],
-        "brace-style": [
-            "error",
-            "stroustrup"
-        ],
+        "no-unused-vars": ["error"],
+        "brace-style": ["error", "stroustrup"],
         "indent": [
             "error",
             4,
