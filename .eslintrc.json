@@ -74,15 +74,6 @@
             {
                 "SwitchCase": 1
             }
-        ],
-        "max-len": [
-            "error",
-            {
-                "code": 120,
-                "ignoreUrls": true,
-                "ignoreStrings": true,
-                "ignoreTrailingComments": true
-            }
         ]
     }
 }
