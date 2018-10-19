@@ -13,34 +13,34 @@ let map = null;
 
 function preload() {
     // load the tileset image which is just a single tile for the background room
-    this.load.image('room1_img', '../../assets/images/room1.png');
-    this.load.image('window', '../../assets/images/window.png');
+    this.load.image("room1_img", "../../assets/images/room1.png");
+    this.load.image("window", "../../assets/images/window.png");
 
     // load the tilemap exported from Tiled
     this.load.tilemapTiledJSON(
-        'map',
-        '../../assets/tilemaps/roomwithobject.json'
+        "map",
+        "../../assets/tilemaps/roomwithobject.json"
     );
 }
 
 function create() {
     // parse the tilemap
-    map = this.make.tilemap({ key: 'map' });
+    map = this.make.tilemap({ key: "map" });
 
     // add the tileset image to the map
-    let tiles = map.addTilesetImage('room1', 'room1_img');
-    map.addTilesetImage('window', 'window');
+    let tiles = map.addTilesetImage("room1", "room1_img");
+    map.addTilesetImage("window", "window");
 
     // add the room_map layer to the scene
-    map.createStaticLayer('room_map', tiles, 0, 0);
+    map.createStaticLayer("room_map", tiles, 0, 0);
     // create sprites for the objects layer
-    map.createFromObjects('objects', 'window', { key: 'window' });
+    map.createFromObjects("objects", "window", { key: "window" });
 
-    this.input.on('pointerup', checkObjectSelection, this);
+    this.input.on("pointerup", checkObjectSelection, this);
 }
 
 function checkObjectSelection(pointer) {
-    let objectLayer = map.getObjectLayer('objects');
+    let objectLayer = map.getObjectLayer("objects");
     if (!objectLayer) return;
 
     // ensure we take the camera position into account
@@ -50,7 +50,7 @@ function checkObjectSelection(pointer) {
     let selectedObject = null;
     for (let object of objectLayer.objects) {
         // check if object is a polygon
-        if (object.hasOwnProperty('polyline')) {
+        if (object.hasOwnProperty("polyline")) {
             // each point on the polyline is relative to it's parent object's position,
             // so need to map them to world values
             let points = object.polyline.map(value => {
@@ -80,8 +80,8 @@ function checkObjectSelection(pointer) {
     }
     if (selectedObject) {
         console.log(
-            'selected object description:' +
-                selectedObject.properties['description']
+            "selected object description:" +
+                selectedObject.properties["description"]
         );
     }
 }
