@@ -1,12 +1,12 @@
 const config = {
-    type  : Phaser.AUTO,
-    width : 1200,
+    type: Phaser.AUTO,
+    width: 1200,
     height: 929,
-    scene : {
+    scene: {
         preload: preload,
-        create : create,
-        update : update,
-    },
+        create: create,
+        update: update
+    }
 };
 
 new Phaser.Game(config);
@@ -18,7 +18,10 @@ function preload() {
     this.load.image('room1_img', '../../assets/images/room1.png');
 
     // load the tilemap exported from Tiled
-    this.load.tilemapTiledJSON('map', '../../assets/tilemaps/justroomimage.json');
+    this.load.tilemapTiledJSON(
+        'map',
+        '../../assets/tilemaps/justroomimage.json'
+    );
 
     // load the target image that the camera will follow
     this.load.image('target', '../../assets/images/target.png');
@@ -46,8 +49,7 @@ function update() {
     // Move the target image back and forth across the room
     if (targetImg.x >= 2000) {
         direction *= -1;
-    }
-    else if (targetImg.x < 300) {
+    } else if (targetImg.x < 300) {
         direction *= -1;
     }
 

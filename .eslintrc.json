@@ -33,16 +33,6 @@
         ],
         "curly": ["error", "multi-line", "consistent"],
         "object-curly-spacing": ["error", "always"],
-        "key-spacing": [
-            "error",
-            {
-                "align": {
-                    "beforeColon": false,
-                    "afterColon": true,
-                    "on": "colon"
-                }
-            }
-        ],
         "new-cap": ["error"],
         "spaced-comment": [
             "error",
@@ -54,18 +44,6 @@
                 "block": {
                     "exceptions": ["*"],
                     "balanced": true
-                }
-            }
-        ],
-        "require-jsdoc": [
-            "error",
-            {
-                "require": {
-                    "FunctionDeclaration": false,
-                    "MethodDefinition": false,
-                    "ClassDeclaration": false,
-                    "ArrowFunctionExpression": false,
-                    "FunctionExpression": false
                 }
             }
         ],
@@ -89,7 +67,7 @@
             }
         ],
         "no-unused-vars": ["error"],
-        "brace-style": ["error", "stroustrup"],
+        "brace-style": ["error", "1tbs"],
         "indent": [
             "error",
             4,

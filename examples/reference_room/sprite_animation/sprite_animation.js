@@ -1,12 +1,13 @@
+/* global AnimatedTiles */
 const config = {
-    type  : Phaser.AUTO,
-    width : 1200,
+    type: Phaser.AUTO,
+    width: 1200,
     height: 929,
-    scene : {
+    scene: {
         preload: preload,
-        create : create,
-        update : update,
-    },
+        create: create,
+        update: update
+    }
 };
 
 new Phaser.Game(config);
@@ -19,13 +20,25 @@ function preload() {
     this.load.image('wall_terminal_img', '../../assets/images/terminal_5x.png');
 
     // Load the player sprite sheet
-    this.load.spritesheet('player_sheet', '../../assets/images/player_sheet.png', { frameWidth: 72, frameHeight: 97 });
+    this.load.spritesheet(
+        'player_sheet',
+        '../../assets/images/player_sheet.png',
+        { frameWidth: 72, frameHeight: 97 }
+    );
 
     // load the tilemap exported from Tiled
-    this.load.tilemapTiledJSON('map', '../../assets/tilemaps/animated_room.json');
+    this.load.tilemapTiledJSON(
+        'map',
+        '../../assets/tilemaps/animated_room.json'
+    );
 
     // Load the Animated Tiles Plugin: https://github.com/nkholski/phaser-animated-tiles
-    this.load.scenePlugin('animatedTiles', AnimatedTiles, 'animatedTiles', 'animatedTiles');
+    this.load.scenePlugin(
+        'animatedTiles',
+        AnimatedTiles,
+        'animatedTiles',
+        'animatedTiles'
+    );
 }
 
 function create() {
@@ -34,7 +47,10 @@ function create() {
 
     // add the tileset image to the map
     let room_tileset = map.addTilesetImage('room1', 'room1_img');
-    let wall_terminal_tileset = map.addTilesetImage('wall_terminal', 'wall_terminal_img');
+    let wall_terminal_tileset = map.addTilesetImage(
+        'wall_terminal',
+        'wall_terminal_img'
+    );
 
     // add the room_map layer to the scene
     map.createStaticLayer('room_map', room_tileset, 0, 0);
@@ -50,9 +66,9 @@ function create() {
 
     // Create the player sprite animation config
     let config = {
-        key   : 'walk',
+        key: 'walk',
         frames: this.anims.generateFrameNumbers('player_sheet', {}),
-        repeat: -1,
+        repeat: -1
     };
 
     // Create the walk animation
@@ -77,8 +93,7 @@ function update() {
     if (player.x >= 2000) {
         direction *= -1;
         player.toggleFlipX(); // make him face the right way
-    }
-    else if (player.x < 300) {
+    } else if (player.x < 300) {
         direction *= -1;
         player.toggleFlipX();
     }

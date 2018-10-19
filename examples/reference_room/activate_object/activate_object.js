@@ -1,11 +1,11 @@
 const config = {
-    type  : Phaser.AUTO,
-    width : 1200,
+    type: Phaser.AUTO,
+    width: 1200,
     height: 929,
-    scene : {
+    scene: {
         preload: preload,
-        create : create,
-    },
+        create: create
+    }
 };
 
 new Phaser.Game(config);
@@ -18,9 +18,12 @@ function preload() {
     this.load.image('light_switch', '../../assets/images/button.png');
     this.load.image('light_off', '../../assets/images/light_off.png');
     this.load.image('light_on', '../../assets/images/light_on.png');
-    
+
     // load the tilemap exported from Tiled
-    this.load.tilemapTiledJSON('map', '../../assets/tilemaps/roomwithobject.json');
+    this.load.tilemapTiledJSON(
+        'map',
+        '../../assets/tilemaps/roomwithobject.json'
+    );
 }
 
 function create() {
@@ -57,10 +60,10 @@ function checkObjectSelection(pointer) {
         if (object.hasOwnProperty('polyline')) {
             // each point on the polyline is relative to it's parent object's position,
             // so need to map them to world values
-            let points = object.polyline.map((value) => {
+            let points = object.polyline.map(value => {
                 return {
                     x: value.x + object.x,
-                    y: value.y + object.y,
+                    y: value.y + object.y
                 };
             });
             let polygon = new Phaser.Geom.Polygon(points);
@@ -69,32 +72,39 @@ function checkObjectSelection(pointer) {
                 selectedObject = object;
                 break;
             }
-        }
-        else {
+        } else {
             // not a polygon, so can just check against x,y,width,height
-            if (x >= object.x && x <= object.x + object.width
-                && y >= object.y - object.height && y <= object.y) {
+            if (
+                x >= object.x &&
+                x <= object.x + object.width &&
+                y >= object.y - object.height &&
+                y <= object.y
+            ) {
                 selectedObject = object;
                 break;
             }
         }
     }
     if (selectedObject) {
-	if (selectedObject.properties['description']) {
-            console.log('selected object description:' + selectedObject.properties['description']);
-	} else if (selectedObject.properties['onUse']) {
-	    objectTrigger(selectedObject, this);
-	}
+        if (selectedObject.properties['description']) {
+            console.log(
+                'selected object description:' +
+                    selectedObject.properties['description']
+            );
+        } else if (selectedObject.properties['onUse']) {
+            objectTrigger(selectedObject, this);
+        }
     }
 }
 
 function objectTrigger(object, scene) {
     if (object.properties['onUse'] === 'toggle ceiling_light') {
-	console.log('toggling ceiling light');
-	let light = scene.children.list.find(o => o.name === 'ceiling_light');
-	if (light) {
-	    let textureKey = (light.texture.key === 'light_off') ? 'light_on' : 'light_off';
-	    light.setTexture(textureKey);
-	}
+        console.log('toggling ceiling light');
+        let light = scene.children.list.find(o => o.name === 'ceiling_light');
+        if (light) {
+            let textureKey =
+                light.texture.key === 'light_off' ? 'light_on' : 'light_off';
+            light.setTexture(textureKey);
+        }
     }
 }
