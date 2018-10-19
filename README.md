@@ -5,7 +5,7 @@
 
 The Hero Engine aims to be an open-source HTML5 adventure game creation engine based on [Tiled](https://www.mapeditor.org/) and [Phaser3](https://phaser.io/).
 
-We're calling it a meta-engine because it is not a full game engine on its own, but a layer on top of Phaser3 that makes it easy to create [Adventure Games](https://en.wikipedia.org/wiki/Adventure_game).
+We're calling it a meta-engine because it is not a full game engine on it's own, but a layer on top of Phaser3 that makes it easy to create [Adventure Games](https://en.wikipedia.org/wiki/Adventure_game).
 The engine will provide game developers with an integration between Tiled and Phaser3 that will allow for easy adventure-game-like level creation.  As well as common functions and UI elements that are common among all
 adventure games.  If you're not sure what an adventure game is, [Monkey Island](https://en.wikipedia.org/wiki/The_Secret_of_Monkey_Island), is a great example of the adventure game genre.
 
