@@ -85,10 +85,12 @@ function checkObjectSelection(pointer) {
         graphics.fillRectShape(dialogBox);
         var style = {
           font: "24px Arial",
-          fill: "#ff0044",
-          align: "center",
-          "backgroundColor" : "#ffffff"};
-        var text = this.add.text(dialogBox.x+leftPadding, dialogBox.y+topPadding, 'selected object description: ' + selectedObject.properties['description'], style);
+          fill: "#000",
+          align: "left",
+          wordWrap: { width: 950, useAdvancedWrap: true },
+          "backgroundColor" : "#ffffff",
+        };
+        var text = this.add.text(dialogBox.x+leftPadding, dialogBox.y+topPadding, selectedObject.properties['description'], style);
         console.log('selected object description:' + selectedObject.properties['description']);
     }
 }
