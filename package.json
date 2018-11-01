@@ -33,7 +33,6 @@
         "browser-sync": "^2.24.7",
         "eslint": "^5.5.0",
         "eslint-config-google": "^0.9.1",
-        "git-pre-commit": "^2.1.4",
         "http-server": "^0.11.1"
     }
 }
