@@ -5,8 +5,8 @@
     "main": "index.js",
     "scripts": {
         "test": "npm run eslint",
-        "eslint": "./node_modules/.bin/eslint src",
-        "eslint-fix": "./node_modules/.bin/eslint --fix src",
+        "eslint": "./node_modules/.bin/eslint src examples --ignore-pattern examples/lib",
+        "eslint-fix": "./node_modules/.bin/eslint --fix src examples --ignore-pattern examples/lib",
         "precommit": "npm run eslint-fix",
         "examples": "node ./node_modules/http-server/bin/http-server examples/ -o"
     },
