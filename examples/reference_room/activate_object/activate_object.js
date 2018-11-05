@@ -18,7 +18,7 @@ function preload() {
     this.load.image('light_switch', '../../assets/images/button.png');
     this.load.image('light_off', '../../assets/images/light_off.png');
     this.load.image('light_on', '../../assets/images/light_on.png');
-    
+
     // load the tilemap exported from Tiled
     this.load.tilemapTiledJSON('map', '../../assets/tilemaps/roomwithobject.json');
 }
@@ -82,14 +82,14 @@ function checkObjectSelection(pointer) {
     if (selectedObject) {
 	if (selectedObject.properties['description']) {
             console.log('selected object description:' + selectedObject.properties['description']);
-	} else if (selectedObject.properties['onUse']) {
+	} else if (selectedObject.properties['onuse']) {
 	    objectTrigger(selectedObject, this);
 	}
     }
 }
 
 function objectTrigger(object, scene) {
-    if (object.properties['onUse'] === 'toggle ceiling_light') {
+    if (object.properties['onuse'] === 'toggle ceiling_light') {
 	console.log('toggling ceiling light');
 	let light = scene.children.list.find(o => o.name === 'ceiling_light');
 	if (light) {
