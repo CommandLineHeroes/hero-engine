@@ -1,4 +1,3 @@
-/* global AnimatedTiles */
 const config = {
     type: Phaser.AUTO,
     width: 1200,
@@ -20,10 +19,11 @@ function preload() {
     this.load.image("wall_terminal_img", "../../assets/images/terminal_5x.png");
 
     // Load the player sprite sheet
+    // Added 3px of empty space to each side of each frame of animation to prevent webGL pixel bleeding
     this.load.spritesheet(
         "player_sheet",
         "../../assets/images/player_sheet.png",
-        { frameWidth: 72, frameHeight: 97 }
+        { frameWidth: 78, frameHeight: 103 }
     );
 
     // load the tilemap exported from Tiled

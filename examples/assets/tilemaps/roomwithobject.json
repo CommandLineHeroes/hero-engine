@@ -12,7 +12,7 @@
          "width":100,
          "x":0,
          "y":0
-        }, 
+        },
         {
          "draworder":"topdown",
          "name":"objects",
@@ -24,7 +24,7 @@
                  "name":"window",
                  "properties":
                     {
-                     "description":"Clear window on the left"
+                     "description":"Looking out this window you see it's a beautiful clear day with a baby blue sky. It looks like a good day to go to the park."
                     },
                  "propertytypes":
                     {
@@ -36,7 +36,7 @@
                  "width":130,
                  "x":513.667,
                  "y":480
-                }, 
+                },
                 {
                  "gid":2,
                  "height":97,
@@ -44,7 +44,7 @@
                  "name":"window",
                  "properties":
                     {
-                     "description":"Clear window on the right"
+                     "description":"Looking out this window you see it's also a beautiful clear day with a baby blue sky. There is a tree obscuring your view of the park."
                     },
                  "propertytypes":
                     {
@@ -56,7 +56,7 @@
                  "width":130,
                  "x":721.667,
                  "y":480
-                }, 
+                },
                 {
                  "height":0,
                  "id":12,
@@ -65,19 +65,19 @@
                         {
                          "x":0,
                          "y":0
-                        }, 
+                        },
                         {
                          "x":0,
                          "y":512
-                        }, 
+                        },
                         {
                          "x":164,
                          "y":408
-                        }, 
+                        },
                         {
                          "x":164,
                          "y":66
-                        }, 
+                        },
                         {
                          "x":2,
                          "y":0
@@ -96,7 +96,7 @@
                  "width":0,
                  "x":162,
                  "y":312
-                }, 
+                },
                 {
                  "gid":3,
                  "height":64,
@@ -116,7 +116,7 @@
                  "width":64,
                  "x":890,
                  "y":460
-                }, 
+                },
                 {
                  "gid":4,
                  "height":83,
@@ -142,7 +142,7 @@
          "visible":true,
          "x":0,
          "y":0
-        }, 
+        },
         {
          "draworder":"topdown",
          "name":"modifiers",
@@ -182,7 +182,7 @@
          "tilecount":1,
          "tileheight":929,
          "tilewidth":2400
-        }, 
+        },
         {
          "columns":1,
          "firstgid":2,
@@ -195,7 +195,7 @@
          "tilecount":1,
          "tileheight":97,
          "tilewidth":130
-        }, 
+        },
         {
          "columns":1,
          "firstgid":3,
@@ -208,7 +208,7 @@
          "tilecount":1,
          "tileheight":64,
          "tilewidth":64
-        }, 
+        },
         {
          "columns":1,
          "firstgid":4,
