@@ -9,7 +9,7 @@
         "eslint-fix": "./node_modules/.bin/eslint --fix src",
         "prettier-examples": "./node_modules/.bin/prettier --write 'examples/**/*.js'",
         "precommit": "npm run eslint-fix",
-        "examples": "node ./node_modules/http-server/bin/http-server examples/ -o"
+        "examples": "browser-sync start --server examples --files 'examples/**/*' --directory"
     },
     "husky": {
         "hooks": {
