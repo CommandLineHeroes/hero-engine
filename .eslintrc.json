@@ -31,22 +31,6 @@
                 "singleQuote": true
             }
         ],
-        "curly": ["error", "multi-line", "consistent"],
-        "object-curly-spacing": ["error", "always"],
-        "new-cap": ["error"],
-        "spaced-comment": [
-            "error",
-            "always",
-            {
-                "line": {
-                    "exceptions": ["/"]
-                },
-                "block": {
-                    "exceptions": ["*"],
-                    "balanced": true
-                }
-            }
-        ],
         "valid-jsdoc": [
             "error",
             {
@@ -70,22 +54,7 @@
                 }
             }
         ],
-        "quotes": [
-            "error",
-            "single",
-            {
-                "avoidEscape": true,
-                "allowTemplateLiterals": true
-            }
-        ],
         "no-unused-vars": ["error"],
-        "brace-style": ["error", "1tbs"],
-        "indent": [
-            "error",
-            4,
-            {
-                "SwitchCase": 1
-            }
-        ]
+	"no-var": ["error"]
     }
 }
