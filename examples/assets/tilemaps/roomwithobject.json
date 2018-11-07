@@ -12,7 +12,7 @@
          "width":100,
          "x":0,
          "y":0
-        },
+        }, 
         {
          "draworder":"topdown",
          "name":"objects",
@@ -24,7 +24,7 @@
                  "name":"window",
                  "properties":
                     {
-                     "description":"Looking out this window you see it's a beautiful clear day with a baby blue sky. It looks like a good day to go to the park."
+                     "description":"Clear window on the left"
                     },
                  "propertytypes":
                     {
@@ -36,7 +36,7 @@
                  "width":130,
                  "x":513.667,
                  "y":480
-                },
+                }, 
                 {
                  "gid":2,
                  "height":97,
@@ -44,7 +44,7 @@
                  "name":"window",
                  "properties":
                     {
-                     "description":"Looking out this window you see it's also a beautiful clear day with a baby blue sky. There is a tree obscuring your view of the park."
+                     "description":"Clear window on the right"
                     },
                  "propertytypes":
                     {
@@ -56,7 +56,7 @@
                  "width":130,
                  "x":721.667,
                  "y":480
-                },
+                }, 
                 {
                  "height":0,
                  "id":12,
@@ -65,19 +65,19 @@
                         {
                          "x":0,
                          "y":0
-                        },
+                        }, 
                         {
                          "x":0,
                          "y":512
-                        },
+                        }, 
                         {
                          "x":164,
                          "y":408
-                        },
+                        }, 
                         {
                          "x":164,
                          "y":66
-                        },
+                        }, 
                         {
                          "x":2,
                          "y":0
@@ -96,7 +96,7 @@
                  "width":0,
                  "x":162,
                  "y":312
-                },
+                }, 
                 {
                  "gid":3,
                  "height":64,
@@ -104,7 +104,7 @@
                  "name":"light_switch",
                  "properties":
                     {
-                     "onUse":"toggle ceiling_light"
+                     "onUse":"turnon ceiling_light"
                     },
                  "propertytypes":
                     {
@@ -116,7 +116,7 @@
                  "width":64,
                  "x":890,
                  "y":460
-                },
+                }, 
                 {
                  "gid":4,
                  "height":83,
@@ -124,11 +124,13 @@
                  "name":"ceiling_light",
                  "properties":
                     {
-                     "description":"ceiling light"
+                     "description":"ceiling light",
+                     "onturnon":"setsprite ceiling_light light_on"
                     },
                  "propertytypes":
                     {
-                     "description":"string"
+                     "description":"string",
+                     "onturnon":"string"
                     },
                  "rotation":0,
                  "type":"room_object",
@@ -136,13 +138,35 @@
                  "width":64,
                  "x":888,
                  "y":225
+                }, 
+                {
+                 "gid":4,
+                 "height":83,
+                 "id":21,
+                 "name":"ceiling_light_on",
+                 "properties":
+                    {
+                     "description":"ceiling light",
+                     "onturnon":"setsprite ceiling_light light_off"
+                    },
+                 "propertytypes":
+                    {
+                     "description":"string",
+                     "onturnon":"string"
+                    },
+                 "rotation":0,
+                 "type":"room_object",
+                 "visible":true,
+                 "width":64,
+                 "x":900,
+                 "y":-95.5
                 }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
          "x":0,
          "y":0
-        },
+        }, 
         {
          "draworder":"topdown",
          "name":"modifiers",
@@ -164,10 +188,10 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":21,
+ "nextobjectid":22,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.1.2",
+ "tiledversion":"1.1.6",
  "tileheight":32,
  "tilesets":[
         {
@@ -182,7 +206,7 @@
          "tilecount":1,
          "tileheight":929,
          "tilewidth":2400
-        },
+        }, 
         {
          "columns":1,
          "firstgid":2,
@@ -195,7 +219,7 @@
          "tilecount":1,
          "tileheight":97,
          "tilewidth":130
-        },
+        }, 
         {
          "columns":1,
          "firstgid":3,
@@ -208,7 +232,7 @@
          "tilecount":1,
          "tileheight":64,
          "tilewidth":64
-        },
+        }, 
         {
          "columns":1,
          "firstgid":4,
