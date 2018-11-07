@@ -8,7 +8,7 @@
         "eslint": "./node_modules/.bin/eslint src",
         "eslint-fix": "./node_modules/.bin/eslint --fix src",
         "precommit": "npm run eslint-fix",
-        "examples": "node ./node_modules/http-server/bin/http-server examples/ -o"
+        "examples": "browser-sync start --server examples --files 'examples/**/*' --directory"
     },
     "repository": {
         "type": "git",
@@ -32,7 +32,6 @@
     "devDependencies": {
         "browser-sync": "^2.24.7",
         "eslint": "^5.5.0",
-        "eslint-config-google": "^0.9.1",
-        "http-server": "^0.11.1"
+        "eslint-config-google": "^0.9.1"
     }
 }
