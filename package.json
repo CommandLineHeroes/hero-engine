@@ -7,7 +7,7 @@
         "test": "npm run eslint",
         "eslint": "./node_modules/.bin/eslint src",
         "eslint-fix": "./node_modules/.bin/eslint --fix src",
-        "prettier": "./node_modules/.bin/eslint --fix src",
+        "prettier-examples": "./node_modules/.bin/prettier --write 'examples/**/*.js'",
         "precommit": "npm run eslint-fix",
         "examples": "node ./node_modules/http-server/bin/http-server examples/ -o"
     },
@@ -17,8 +17,12 @@
         }
     },
     "lint-staged": {
-        "*.js": [
+        "src/**/*.js": [
             "npm run eslint-fix",
+            "git add"
+        ],
+        "examples/**/*.js": [
+            "npm run prettier-examples",
             "git add"
         ]
     },
