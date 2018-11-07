@@ -7,8 +7,24 @@
         "test": "npm run eslint",
         "eslint": "./node_modules/.bin/eslint src",
         "eslint-fix": "./node_modules/.bin/eslint --fix src",
+        "prettier-examples": "./node_modules/.bin/prettier --write 'examples/**/*.js'",
         "precommit": "npm run eslint-fix",
         "examples": "node ./node_modules/http-server/bin/http-server examples/ -o"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "src/**/*.js": [
+            "npm run eslint-fix",
+            "git add"
+        ],
+        "examples/**/*.js": [
+            "npm run prettier-examples",
+            "git add"
+        ]
     },
     "repository": {
         "type": "git",
@@ -30,9 +46,17 @@
         "phaser-animated-tiles": "^2.0.2"
     },
     "devDependencies": {
+        "babel-eslint": "^10.0.1",
         "browser-sync": "^2.24.7",
         "eslint": "^5.5.0",
         "eslint-config-google": "^0.9.1",
-        "http-server": "^0.11.1"
+        "eslint-plugin-import": "^2.14.0",
+        "eslint-plugin-prettier": "^3.0.0",
+        "git-pre-commit": "^2.1.4",
+        "http-server": "^0.11.1",
+        "husky": "^1.1.2",
+        "lint-staged": "^7.3.0",
+        "prettier": "^1.14.3",
+        "prettier-eslint": "^8.8.2"
     }
 }
