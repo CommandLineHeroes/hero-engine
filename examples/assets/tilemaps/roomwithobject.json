@@ -104,11 +104,11 @@
                  "name":"light_switch",
                  "properties":
                     {
-                     "onUse":"turnon ceiling_light"
+                     "onuse":"turnon ceiling_light"
                     },
                  "propertytypes":
                     {
-                     "onUse":"string"
+                     "onuse":"string"
                     },
                  "rotation":0,
                  "type":"trigger_object",
