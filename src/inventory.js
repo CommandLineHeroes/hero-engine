@@ -13,7 +13,13 @@ const item = class {
      * @param {number} amount - the amount of the item.
      * @param {number} maxStackSize - defines the maximum stack size of the item.
      */
-    constructor(name, attack, armor, weight, cost, amount = 1, maxStackSize = 1) {
+    constructor(name, 
+                 attack, 
+                 armor, 
+                 weight, 
+                 cost, 
+                 amount = 1, 
+                 maxStackSize = 1) {
         this.name = name;
         this.attack = attack;
         this.armor = armor;
@@ -35,7 +41,7 @@ const inventory = class {
     constructor() {
         this.items = [];
     }
-    
+
     /**
      * Add an item to the inventory.
      * @param {class} item - the item to be manipulated.
@@ -49,8 +55,8 @@ const inventory = class {
             }
         }
     }
-    
-     /**
+
+    /**
       * Remove an item from the inventory.
       * @param {class} item - the item to be manipulated.
       */
@@ -58,7 +64,7 @@ const inventory = class {
         if (item !== null) {
             if (this.items[item.name]) {
                 this.items[item.name].amount -= 1;
-            } 
+            }
         }
     }
 
