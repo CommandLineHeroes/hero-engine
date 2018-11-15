@@ -21,7 +21,7 @@
                  "gid":2,
                  "height":97,
                  "id":10,
-                 "name":"window",
+                 "name":"window1",
                  "properties":
                     {
                      "description":"Clear window on the left"
@@ -41,7 +41,7 @@
                  "gid":2,
                  "height":97,
                  "id":11,
-                 "name":"window",
+                 "name":"window2",
                  "properties":
                     {
                      "description":"Clear window on the right"
@@ -142,24 +142,34 @@
                 {
                  "gid":4,
                  "height":83,
-                 "id":21,
-                 "name":"ceiling_light_on",
+                 "id":22,
+                 "name":"ceiling_light_off",
                  "properties":
                     {
-                     "description":"ceiling light",
-                     "onturnon":"setsprite ceiling_light light_off"
+                     "description":"ceiling light"
                     },
                  "propertytypes":
                     {
-                     "description":"string",
-                     "onturnon":"string"
+                     "description":"string"
                     },
                  "rotation":0,
                  "type":"room_object",
                  "visible":true,
                  "width":64,
-                 "x":900,
-                 "y":-95.5
+                 "x":676,
+                 "y":-103
+                }, 
+                {
+                 "gid":6,
+                 "height":83,
+                 "id":25,
+                 "name":"ceiling_light_on",
+                 "rotation":0,
+                 "type":"room_object",
+                 "visible":true,
+                 "width":64,
+                 "x":922,
+                 "y":-133
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -188,7 +198,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":22,
+ "nextobjectid":26,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.1.6",
@@ -240,7 +250,45 @@
          "imageheight":83,
          "imagewidth":64,
          "margin":0,
-         "name":"light",
+         "name":"light_off",
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":83,
+         "tilewidth":64
+        }, 
+        {
+         "columns":0,
+         "firstgid":5,
+         "grid":
+            {
+             "height":1,
+             "orientation":"orthogonal",
+             "width":1
+            },
+         "margin":0,
+         "name":"terminal_5x",
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":160,
+         "tiles":
+            {
+             "0":
+                {
+                 "image":"..\/images\/terminal_5x.png",
+                 "imageheight":160,
+                 "imagewidth":2720
+                }
+            },
+         "tilewidth":2720
+        }, 
+        {
+         "columns":1,
+         "firstgid":6,
+         "image":"..\/images\/light_on.png",
+         "imageheight":83,
+         "imagewidth":64,
+         "margin":0,
+         "name":"light_on",
          "spacing":0,
          "tilecount":1,
          "tileheight":83,
