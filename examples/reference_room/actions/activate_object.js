@@ -1,49 +1,41 @@
-import actions from "./actions.js";
-import actionRunner from "./action-runner.js";
-import objectCache from "./cache.js";
-import { resolve } from "./path.js";
+import actions from './actions.js';
+import actionRunner from './action-runner.js';
+import objectCache from './cache.js';
+import { resolve } from './path.js';
 
 class LoadMapScene extends Phaser.Scene {
     constructor() {
-        super("LoadMapScene");
+        super('LoadMapScene');
     }
     preload() {
-        const mapUrl = "../../assets/tilemaps/roomwithobject.json";
-        const mapjson = this.load.json("map.json", mapUrl);
+        const mapUrl = '../../assets/tilemaps/roomwithobject.json';
+        const mapjson = this.load.json('map.json', mapUrl);
     }
     create() {
-        this.scene.start("GameScene");
+        this.scene.start('GameScene');
     }
 }
 
 class GameScene extends Phaser.Scene {
     constructor() {
-        super("GameScene");
+        super('GameScene');
     }
     preload() {
-        // load the tileset image which is just a single tile for the background room
-        // this.load.image("room1_img", "../../assets/images/room1.png");
-        // this.load.image("window", "../../assets/images/window.png");
-        // this.load.image("light_switch", "../../assets/images/button.png");
-        // this.load.image("light_off", "../../assets/images/light_off.png");
-        // this.load.image("light_on", "../../assets/images/light_on.png");
-
         // load the tilemap exported from Tiled
-        const mapUrl = "../../assets/tilemaps/roomwithobject.json";
+        const mapUrl = '../../assets/tilemaps/roomwithobject.json';
 
         // load the map as raw json and as a tilemap.  why?  Phaser's Tilemap
         // *seems* to lose a few data points that we need from the original Tiled
         // json file.
 
         const mapUrlAbs = resolve(location.pathname, mapUrl);
-        const mapjson = this.cache.json.entries.get("map.json");
+        const mapjson = this.cache.json.entries.get('map.json');
         // parse the Tiled map json for more things to preload.
         mapjson.tilesets.forEach(tileset => {
             // find type (sprite, spritesheet, etc) of tileset and preload
             // accordingly
             if (tileset.image) {
                 const img = resolve(mapUrlAbs, tileset.image);
-                // console.log(`preloading ${tileset.name} ${img}`);
                 this.load.image(`${tileset.name}`, img);
                 console.log(`this.load.image('${tileset.name}', '${img}')`);
             } else if (tileset.tiles) {
@@ -55,37 +47,37 @@ class GameScene extends Phaser.Scene {
 
         // this.load.image("room1_img", "/assets/images/room1.png");
 
-        this.load.tilemapTiledJSON("map", mapUrl);
+        this.load.tilemapTiledJSON('map', mapUrl);
     }
     create() {
         // parse the tilemap
-        map = this.make.tilemap({ key: "map" });
+        map = this.make.tilemap({ key: 'map' });
 
         console.log(`TODO: make object creation automatic.`);
 
         // add the tileset image to the map
-        let tiles = map.addTilesetImage("room1", "room1");
-        let w = map.addTilesetImage("window", "window");
-        let l = map.addTilesetImage("light_switch", "light_switch");
+        let tiles = map.addTilesetImage('room1', 'room1');
+        let w = map.addTilesetImage('window', 'window');
+        let l = map.addTilesetImage('light_switch', 'light_switch');
 
         // add the room_map layer to the scene
-        map.createStaticLayer("room_map", tiles, 0, 0);
+        map.createStaticLayer('room_map', tiles, 0, 0);
 
         // create sprites for the objects layer
-        const window1 = map.createFromObjects("objects", "window1", {
-            key: "window"
+        const window1 = map.createFromObjects('objects', 'window1', {
+            key: 'window'
         });
-        const window2 = map.createFromObjects("objects", "window2", {
-            key: "window"
+        const window2 = map.createFromObjects('objects', 'window2', {
+            key: 'window'
         });
-        const light_switch = map.createFromObjects("objects", "light_switch", {
-            key: "light_switch"
+        const light_switch = map.createFromObjects('objects', 'light_switch', {
+            key: 'light_switch'
         });
         const ceiling_light = map.createFromObjects(
-            "objects",
-            "ceiling_light",
+            'objects',
+            'ceiling_light',
             {
-                key: "light_off"
+                key: 'light_off'
             }
         );
 
@@ -99,12 +91,12 @@ class GameScene extends Phaser.Scene {
             cache.add(object.name, object);
         }
 
-        this.input.on("pointerup", checkObjectSelection, this);
+        this.input.on('pointerup', checkObjectSelection, this);
     }
 }
 
 function checkObjectSelection(pointer) {
-    let objectLayer = map.getObjectLayer("objects");
+    let objectLayer = map.getObjectLayer('objects');
     if (!objectLayer) return;
 
     // ensure we take the camera position into account
@@ -114,7 +106,7 @@ function checkObjectSelection(pointer) {
     let selectedObject = null;
     for (let object of objectLayer.objects) {
         // check if object is a polygon
-        if (object.hasOwnProperty("polyline")) {
+        if (object.hasOwnProperty('polyline')) {
             // each point on the polyline is relative to it's parent object's position,
             // so need to map them to world values
             let points = object.polyline.map(value => {
@@ -143,13 +135,13 @@ function checkObjectSelection(pointer) {
         }
     }
     if (selectedObject) {
-        if (selectedObject.properties["description"]) {
+        if (selectedObject.properties['description']) {
             console.log(
-                "selected object description:" +
-                    selectedObject.properties["description"]
+                'selected object description:' +
+                    selectedObject.properties['description']
             );
-        } else if (selectedObject.properties["onuse"]) {
-            ar.run("use", selectedObject);
+        } else if (selectedObject.properties['onuse']) {
+            ar.run('use', selectedObject);
         }
     }
 }
@@ -158,11 +150,6 @@ const config = {
     type: Phaser.AUTO,
     width: 1200,
     height: 929,
-    // scene: {
-    //     preload: preload,
-    //     create: create
-    // }
-    // scene: [LoadMapScene, gameScene]
     scene: [LoadMapScene, GameScene]
 };
 
@@ -171,6 +158,6 @@ window.game = game; // for easy debugging
 let map = null;
 
 // init object cache, for easy object lookup
-const cache = new objectCache("object-cache");
+const cache = new objectCache('object-cache');
 
 const ar = new actionRunner(actions, cache, game);
