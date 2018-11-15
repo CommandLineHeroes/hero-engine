@@ -60,8 +60,8 @@ class GameScene extends Phaser.Scene {
     create() {
         // parse the tilemap
         map = this.make.tilemap({ key: "map" });
-        // window.map = map;
-        // window.mapjson = this.cache.json.entries.get("map.json");
+
+        console.log(`TODO: make object creation automatic.`);
 
         // add the tileset image to the map
         let tiles = map.addTilesetImage("room1", "room1");
