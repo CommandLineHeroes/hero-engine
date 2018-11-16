@@ -11,6 +11,11 @@ class LoadMapScene extends Phaser.Scene {
         super('LoadMapScene');
     }
     preload() {
+        // load the map as raw json.  why?  Phaser's Tilemap feature *seems* to
+        // lose a few data points that we need from the original Tiled json
+        // file.  In the next scene we'll preload the same file, but as a
+        // tilemap.
+
         const mapUrl = '../../assets/tilemaps/roomwithobject.json';
         const mapjson = this.load.json('map.json', mapUrl);
     }
@@ -23,17 +28,15 @@ class GameScene extends Phaser.Scene {
     constructor() {
         super('GameScene');
     }
+
     preload() {
         // load the tilemap exported from Tiled
         const mapUrl = '../../assets/tilemaps/roomwithobject.json';
 
-        // load the map as raw json and as a tilemap.  why?  Phaser's Tilemap
-        // *seems* to lose a few data points that we need from the original Tiled
-        // json file.
-
         const mapUrlAbs = resolve(location.pathname, mapUrl);
         const mapjson = this.cache.json.entries.get('map.json');
-        // parse the Tiled map json for more things to preload.
+
+        // parse the Tiled map json (which we preloaded in LoadMapScene) for more things to preload.
         mapjson.tilesets.forEach(tileset => {
             const name = tileset.name;
 
@@ -42,7 +45,8 @@ class GameScene extends Phaser.Scene {
             // accordingly
             if (tileset.image) {
                 const img = resolve(mapUrlAbs, tileset.image);
-                this.load.image(`${name}`, img);
+                this.load.image(name, img);
+                console.log(`preloading image '${name}' from ${img}`);
             } else if (tileset.tiles) {
                 console.log(
                     `TODO: learn how to preload spritesheets based on Tiled json data`
@@ -53,12 +57,18 @@ class GameScene extends Phaser.Scene {
         // this.load.image("room1_img", "/assets/images/room1.png");
 
         this.load.tilemapTiledJSON('map', mapUrl);
+
+        // Load the Animated Tiles Plugin: https://github.com/nkholski/phaser-animated-tiles
+        this.load.scenePlugin({
+            key: 'AnimatedTiles',
+            url: '../../lib/AnimatedTiles.js',
+            sceneKey: 'GameScene'
+        });
     }
+
     create() {
         // parse the tilemap
         map = this.make.tilemap({ key: 'map' });
-
-        console.log(`TODO: make object creation automatic.`);
 
         // add the tileset image to the map
         let tiles = map.addTilesetImage('room1', 'room1');
@@ -68,22 +78,38 @@ class GameScene extends Phaser.Scene {
         // add the room_map layer to the scene
         map.createStaticLayer('room_map', tiles, 0, 0);
 
+        // We got the map. Tell animated tiles plugin to loop through the tileset properties and get ready.
+        // We don't need to do anything beyond this point for animated tiles to work.
+        console.log('TODO: automate animated tileset creation');
+        const terminalTileset = map.addTilesetImage(
+            'wall_terminal',
+            'wall_terminal'
+        );
+        map.createDynamicLayer('terminals', terminalTileset, 0, 0);
+        this.sys.AnimatedTiles.init(map);
+
         const objectLayer = map.objects.find(ol => ol.name == 'objects');
 
         if (objectLayer) {
             objectLayer.objects.forEach(o => {
-                let gameObj;
                 const spriteConfig = {};
 
-                if (o.hasOwnProperty('gid')) {
-                    gameObj = map.createFromObjects('objects', o.name, {
-                        key: gidMap[o.gid]
-                    });
-                } else {
-                    gameObj = map.createFromObjects('objects', o.name);
+                if (o.name == 'wall_term1' || o.name == 'wall_term2') {
+                    console.log('ANIMATED');
+                    // map.addTilesetImage(gidMap[o.gid]);
                 }
 
-                console.log(`creating game object ${o.name}`);
+                if (o.hasOwnProperty('gid')) {
+                    spriteConfig.key = gidMap[o.gid];
+                }
+
+                const gameObj = map.createFromObjects('objects', o.name, {
+                    key: gidMap[o.gid]
+                });
+
+                console.log(
+                    `creating game object ${o.name} (img: ${spriteConfig.key})`
+                );
 
                 cache.add(o.name, ...gameObj);
             });

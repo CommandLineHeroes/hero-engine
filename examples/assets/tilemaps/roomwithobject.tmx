@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="28">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="40">
  <tileset firstgid="1" name="room1" tilewidth="2400" tileheight="929" tilecount="1" columns="1">
   <image source="../images/room1.png" width="2400" height="929"/>
  </tileset>
@@ -12,14 +12,32 @@
  <tileset firstgid="4" name="light_off" tilewidth="64" tileheight="83" tilecount="1" columns="1">
   <image source="../images/light_off.png" width="64" height="83"/>
  </tileset>
- <tileset firstgid="5" name="terminal_5x" tilewidth="2720" tileheight="160" tilecount="1" columns="0">
-  <grid orientation="orthogonal" width="1" height="1"/>
-  <tile id="0">
-   <image width="2720" height="160" source="../images/terminal_5x.png"/>
-  </tile>
- </tileset>
- <tileset firstgid="6" name="light_on" tilewidth="64" tileheight="83" tilecount="1" columns="1">
+ <tileset firstgid="5" name="light_on" tilewidth="64" tileheight="83" tilecount="1" columns="1">
   <image source="../images/light_on.png" width="64" height="83"/>
+ </tileset>
+ <tileset firstgid="6" name="wall_terminal" tilewidth="160" tileheight="160" tilecount="17" columns="17">
+  <image source="../images/terminal_5x.png" width="2720" height="160"/>
+  <tile id="0">
+   <animation>
+    <frame tileid="0" duration="100"/>
+    <frame tileid="1" duration="100"/>
+    <frame tileid="2" duration="100"/>
+    <frame tileid="3" duration="100"/>
+    <frame tileid="4" duration="100"/>
+    <frame tileid="5" duration="100"/>
+    <frame tileid="6" duration="100"/>
+    <frame tileid="7" duration="100"/>
+    <frame tileid="8" duration="100"/>
+    <frame tileid="9" duration="100"/>
+    <frame tileid="10" duration="100"/>
+    <frame tileid="11" duration="100"/>
+    <frame tileid="12" duration="100"/>
+    <frame tileid="13" duration="100"/>
+    <frame tileid="14" duration="100"/>
+    <frame tileid="15" duration="100"/>
+    <frame tileid="16" duration="100"/>
+   </animation>
+  </tile>
  </tileset>
  <layer name="room_map" width="100" height="100">
   <data encoding="base64">
@@ -54,6 +72,7 @@
     <property name="onturnon" value="setsprite ceiling_light light_on"/>
    </properties>
   </object>
+  <object id="29" name="wall_term" gid="6" x="972" y="588" width="160" height="160"/>
  </objectgroup>
  <objectgroup name="modifiers" locked="1">
   <object id="4" name="room1bounds" type="room_bounds" x="0" y="0" width="2400" height="929"/>
