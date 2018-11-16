@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="26">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="28">
  <tileset firstgid="1" name="room1" tilewidth="2400" tileheight="929" tilecount="1" columns="1">
   <image source="../images/room1.png" width="2400" height="929"/>
  </tileset>
@@ -54,12 +54,6 @@
     <property name="onturnon" value="setsprite ceiling_light light_on"/>
    </properties>
   </object>
-  <object id="22" name="ceiling_light_off" type="room_object" gid="4" x="676" y="-103" width="64" height="83">
-   <properties>
-    <property name="description" value="ceiling light"/>
-   </properties>
-  </object>
-  <object id="25" name="ceiling_light_on" type="room_object" gid="6" x="922" y="-133" width="64" height="83"/>
  </objectgroup>
  <objectgroup name="modifiers" locked="1">
   <object id="4" name="room1bounds" type="room_bounds" x="0" y="0" width="2400" height="929"/>

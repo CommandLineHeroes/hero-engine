@@ -138,38 +138,6 @@
                  "width":64,
                  "x":888,
                  "y":225
-                }, 
-                {
-                 "gid":4,
-                 "height":83,
-                 "id":22,
-                 "name":"ceiling_light_off",
-                 "properties":
-                    {
-                     "description":"ceiling light"
-                    },
-                 "propertytypes":
-                    {
-                     "description":"string"
-                    },
-                 "rotation":0,
-                 "type":"room_object",
-                 "visible":true,
-                 "width":64,
-                 "x":676,
-                 "y":-103
-                }, 
-                {
-                 "gid":6,
-                 "height":83,
-                 "id":25,
-                 "name":"ceiling_light_on",
-                 "rotation":0,
-                 "type":"room_object",
-                 "visible":true,
-                 "width":64,
-                 "x":922,
-                 "y":-133
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -198,7 +166,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":26,
+ "nextobjectid":28,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.1.6",

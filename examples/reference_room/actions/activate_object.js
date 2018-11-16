@@ -3,6 +3,9 @@ import actionRunner from './action-runner.js';
 import objectCache from './cache.js';
 import { resolve } from './path.js';
 
+// object to map Tiled's global IDs to sprite names, populated during preload.
+const gidMap = {};
+
 class LoadMapScene extends Phaser.Scene {
     constructor() {
         super('LoadMapScene');
@@ -32,12 +35,14 @@ class GameScene extends Phaser.Scene {
         const mapjson = this.cache.json.entries.get('map.json');
         // parse the Tiled map json for more things to preload.
         mapjson.tilesets.forEach(tileset => {
+            const name = tileset.name;
+
+            gidMap[tileset.firstgid] = name;
             // find type (sprite, spritesheet, etc) of tileset and preload
             // accordingly
             if (tileset.image) {
                 const img = resolve(mapUrlAbs, tileset.image);
-                this.load.image(`${tileset.name}`, img);
-                console.log(`this.load.image('${tileset.name}', '${img}')`);
+                this.load.image(`${name}`, img);
             } else if (tileset.tiles) {
                 console.log(
                     `TODO: learn how to preload spritesheets based on Tiled json data`
@@ -63,36 +68,35 @@ class GameScene extends Phaser.Scene {
         // add the room_map layer to the scene
         map.createStaticLayer('room_map', tiles, 0, 0);
 
-        // create sprites for the objects layer
-        const window1 = map.createFromObjects('objects', 'window1', {
-            key: 'window'
-        });
-        const window2 = map.createFromObjects('objects', 'window2', {
-            key: 'window'
-        });
-        const light_switch = map.createFromObjects('objects', 'light_switch', {
-            key: 'light_switch'
-        });
-        const ceiling_light = map.createFromObjects(
-            'objects',
-            'ceiling_light',
-            {
-                key: 'light_off'
-            }
-        );
+        const objectLayer = map.objects.find(ol => ol.name == 'objects');
 
-        // cache objects for easy lookup later
-        for (let object of [
-            ...window1,
-            ...window2,
-            ...light_switch,
-            ...ceiling_light
-        ]) {
-            cache.add(object.name, object);
+        if (objectLayer) {
+            objectLayer.objects.forEach(o => {
+                let gameObj;
+                const spriteConfig = {};
+
+                if (o.hasOwnProperty('gid')) {
+                    gameObj = map.createFromObjects('objects', o.name, {
+                        key: gidMap[o.gid]
+                    });
+                } else {
+                    gameObj = map.createFromObjects('objects', o.name);
+                }
+
+                console.log(`creating game object ${o.name}`);
+
+                cache.add(o.name, ...gameObj);
+            });
+        } else {
+            throw new Error(
+                'Layer with name "objects" is required by Hero Engine but no such layer was found in the Tiled map.'
+            );
         }
 
         this.input.on('pointerup', checkObjectSelection, this);
     }
+
+    update() {}
 }
 
 function checkObjectSelection(pointer) {
