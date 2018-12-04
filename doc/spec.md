@@ -153,6 +153,7 @@ boolean lists the Tiled custom property for an object which determines whether t
 command | listener | boolean | description | examples
 :-|:-|:-|:-|:-
 look | onlook | canlook | Display the description of an object | (links to examples will go here, when ready)
+inspect | oninspect | caninspect | Display a fullscreen view of an object | `inspect room13`
 talk | ontalk | cantalk | Begin a conversation | 
 take | ontake | cantake | Put an object in your inventory | 
 open | onopen | canopen | Open an object | 
