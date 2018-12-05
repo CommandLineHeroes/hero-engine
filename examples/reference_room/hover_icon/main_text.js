@@ -87,8 +87,6 @@ function checkObjectHint(pointer) {
     let x = pointer.x - this.cameras.main.x;
     let y = pointer.y - this.cameras.main.y;
 
-    console.log("Mouse motion:", x, y);
-
     let selectedObject = null;
     for (let object of objectLayer.objects) {
         if (isPointOnObject(x, y, object)) {
