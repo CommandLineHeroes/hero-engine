@@ -1,11 +1,7 @@
-class action /* lawsuit */ {
-    constructor(group, name='NAMELESS_ACTION', fn=nyi) {
-        this.group = group;
+class Action /* lawsuit! */ {
+    constructor(name = "NAMELESS_ACTION", fn = nyi) {
         this.name = name;
         this.fn = fn;
-
-        // register myself with the provided group of actions
-        this.group[this.name] = this;
     }
 
     log(...msgs) {
@@ -18,7 +14,7 @@ class action /* lawsuit */ {
 }
 
 function nyi() {
-    console.log(`[actions] "${this.name}" not yet implemented`);
+    console.log(`[actions] action "${this.name}" not yet implemented`);
 }
 
-export default action;
+export default Action;

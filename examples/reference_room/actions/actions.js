@@ -1,31 +1,84 @@
-import action from "./action.js";
-import parse from "./action-parser.js";
-import ar from "./action-runner.js";
+import Action from "./action.js";
+import Logger from "./logger.js";
 
-const actions = {};
+const logger = new Logger("actions");
 
-export default {
-    turnon: new action(actions, "turnon", (game, cache, _obj) => {
-        const obj = cache.get(_obj);
-        console.log(`[actions.turnon] ${obj.name}`);
-        if (obj.data.list.onturnon) {
-            const cmd = parse(obj.data.list.onturnon);
-            actions[cmd.action].run(game, cache, ...cmd.args);
+export default class Actions {
+    /**
+     * Constructor for an Actions object.
+     *
+     * @param {Phaser.Game} game a reference to the Phaser game
+     * @param {Object} cache a cache object for easily looking up Phaser objects by name
+     */
+    constructor(game, cache) {
+        this.game = game;
+        this.cache = cache;
+        this.actions = {};
+    }
+
+    /**
+     * Add a new action.  This takes an action name and a function that implements the action.
+     *
+     * The handler functions' first two arguments must be:
+     *
+     *  - `game`, a reference to the Phaser.Game instance
+     *  - `cache`, a reference to a cache object that can be used for easily looking up Tiled objects by name
+     *
+     * Any number of extra arguments may be passed in as well, depending on the
+     * needs of the action, but the first two must be `game` and `cache`.
+     *
+     * @param {String} name the action's name
+     * @param {Function} fn the function that performs the action's duties
+     * @return {Action} the action object that was just created
+     */
+    add(name, fn) {
+        this.actions[name] = new Action(name, fn);
+    }
+
+    /**
+     * Get an action by name, if it exists.  Returns `undefined` if the action doesn't exist.
+     *
+     * @param {String} name the name of the action
+     * @return {Action|undefined} the action object, or undefined
+     */
+    get(name) {
+        return this.actions[name.toLowerCase()];
+    }
+
+    /**
+     * Remove an action.
+     *
+     * @param {String} name the name of the action
+     */
+    remove(name) {
+        delete this.actions[name.toLowerCase()];
+    }
+
+    /**
+     * Run an action by name, with optional args.
+     *
+     * @param {String} name the name of the action
+     * @param {Object} args extra arguments to be passed along to the action
+     */
+    // TODO make this async
+    run(name, ...args) {
+        const action = this.get(name);
+        if (action) {
+            action.run(this.game, this.cache, ...args);
+        } else {
+            logger.log(`action '${name}' not found`);
         }
-    }),
+    }
 
-    use: new action(actions, "use", (game, cache, _obj) => {
-        const obj = cache.get(_obj);
-        console.log(`[actions.use] ${obj.name} -> ${obj.data.list.onuse}`);
-        if (obj.data.list.onuse) {
-            const cmd = parse(obj.data.list.onuse);
-            actions[cmd.action].run(game, cache, ...cmd.args);
-        }
-    }),
-
-    setsprite: new action(actions, "setsprite", (game, cache, _obj, sprite) => {
-        const obj = cache.get(_obj);
-        console.log(`[actions.setsprite] ${obj.name} to ${sprite}`);
-        obj.setTexture(sprite);
-    })
-};
+    /**
+     * Run a command line (such as an action handler, or a command the user typed into the CLI).
+     *
+     * @param {String} cmd the command to be executed
+     * @example eval("turnon lamp1")
+     */
+    eval(cmd) {
+        logger.log(`parsing '${cmd}'`);
+        const [actionName, ...args] = cmd.split(/\s+/);
+        this.run(actionName, ...args); // TODO await this
+    }
+}
