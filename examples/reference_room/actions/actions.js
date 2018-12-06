@@ -1,7 +1,7 @@
-import Action from "./action.js";
-import Logger from "./logger.js";
+import Action from './action.js';
+import Logger from './logger.js';
 
-const logger = new Logger("actions");
+const logger = new Logger('actions');
 
 export default class Actions {
     /**
@@ -32,7 +32,7 @@ export default class Actions {
      * @return {Action} the action object that was just created
      */
     add(name, fn) {
-        this.actions[name] = new Action(name, fn);
+        this.actions[name.toLowerCase()] = new Action(name, fn);
     }
 
     /**
@@ -60,8 +60,7 @@ export default class Actions {
      * @param {String} name the name of the action
      * @param {Object} args extra arguments to be passed along to the action
      */
-    // TODO make this async
-    run(name, ...args) {
+    async run(name, ...args) {
         const action = this.get(name);
         if (action) {
             action.run(this.game, this.cache, ...args);
@@ -76,9 +75,9 @@ export default class Actions {
      * @param {String} cmd the command to be executed
      * @example eval("turnon lamp1")
      */
-    eval(cmd) {
+    async eval(cmd) {
         logger.log(`parsing '${cmd}'`);
         const [actionName, ...args] = cmd.split(/\s+/);
-        this.run(actionName, ...args); // TODO await this
+        await this.run(actionName, ...args);
     }
 }

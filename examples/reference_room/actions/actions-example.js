@@ -1,13 +1,13 @@
-import Actions from "./actions.js";
-import objectCache from "./cache.js";
-import { resolve } from "./path.js";
+import Actions from './actions.js';
+import objectCache from './cache.js';
+import { resolve } from './path.js';
 
 // object to map Tiled's global IDs to sprite names, populated during preload.
 const gidMap = {};
 
 class LoadMapScene extends Phaser.Scene {
     constructor() {
-        super("LoadMapScene");
+        super('LoadMapScene');
     }
     preload() {
         // load the map as raw json.  why?  Phaser's Tilemap feature *seems* to
@@ -15,25 +15,25 @@ class LoadMapScene extends Phaser.Scene {
         // file.  In the next scene we'll preload the same file, but as a
         // tilemap.
 
-        const mapUrl = "../../assets/tilemaps/roomwithobject.json";
-        const mapjson = this.load.json("map.json", mapUrl);
+        const mapUrl = '../../assets/tilemaps/roomwithobject.json';
+        const mapjson = this.load.json('map.json', mapUrl);
     }
     create() {
-        this.scene.start("GameScene");
+        this.scene.start('GameScene');
     }
 }
 
 class GameScene extends Phaser.Scene {
     constructor() {
-        super("GameScene");
+        super('GameScene');
     }
 
     preload() {
         // load the tilemap exported from Tiled
-        const mapUrl = "../../assets/tilemaps/roomwithobject.json";
+        const mapUrl = '../../assets/tilemaps/roomwithobject.json';
 
         const mapUrlAbs = resolve(location.pathname, mapUrl);
-        const mapjson = this.cache.json.entries.get("map.json");
+        const mapjson = this.cache.json.entries.get('map.json');
 
         // parse the Tiled map json (which we preloaded in LoadMapScene) for more things to preload.
         mapjson.tilesets.forEach(tileset => {
@@ -55,54 +55,54 @@ class GameScene extends Phaser.Scene {
 
         // this.load.image("room1_img", "/assets/images/room1.png");
 
-        this.load.tilemapTiledJSON("map", mapUrl);
+        this.load.tilemapTiledJSON('map', mapUrl);
 
         // Load the Animated Tiles Plugin: https://github.com/nkholski/phaser-animated-tiles
         this.load.scenePlugin({
-            key: "AnimatedTiles",
-            url: "../../lib/AnimatedTiles.js",
-            sceneKey: "GameScene"
+            key: 'AnimatedTiles',
+            url: '../../lib/AnimatedTiles.js',
+            sceneKey: 'GameScene'
         });
     }
 
     create() {
         // parse the tilemap
-        map = this.make.tilemap({ key: "map" });
+        map = this.make.tilemap({ key: 'map' });
 
         // add the tileset image to the map
-        let tiles = map.addTilesetImage("room1", "room1");
-        let w = map.addTilesetImage("window", "window");
-        let l = map.addTilesetImage("light_switch", "light_switch");
+        let tiles = map.addTilesetImage('room1', 'room1');
+        let w = map.addTilesetImage('window', 'window');
+        let l = map.addTilesetImage('light_switch', 'light_switch');
 
         // add the room_map layer to the scene
-        map.createStaticLayer("room_map", tiles, 0, 0);
+        map.createStaticLayer('room_map', tiles, 0, 0);
 
         // We got the map. Tell animated tiles plugin to loop through the tileset properties and get ready.
         // We don't need to do anything beyond this point for animated tiles to work.
-        console.log("TODO: automate animated tileset creation");
+        console.log('TODO: automate animated tileset creation');
         const terminalTileset = map.addTilesetImage(
-            "wall_terminal",
-            "wall_terminal"
+            'wall_terminal',
+            'wall_terminal'
         );
-        map.createDynamicLayer("terminals", terminalTileset, 0, 0);
+        map.createDynamicLayer('terminals', terminalTileset, 0, 0);
         this.sys.AnimatedTiles.init(map);
 
-        const objectLayer = map.objects.find(ol => ol.name == "objects");
+        const objectLayer = map.objects.find(ol => ol.name == 'objects');
 
         if (objectLayer) {
             objectLayer.objects.forEach(o => {
                 const spriteConfig = {};
 
-                if (o.name == "wall_term1" || o.name == "wall_term2") {
-                    console.log("ANIMATED");
+                if (o.name == 'wall_term1' || o.name == 'wall_term2') {
+                    console.log('ANIMATED');
                     // map.addTilesetImage(gidMap[o.gid]);
                 }
 
-                if (o.hasOwnProperty("gid")) {
+                if (o.hasOwnProperty('gid')) {
                     spriteConfig.key = gidMap[o.gid];
                 }
 
-                const gameObj = map.createFromObjects("objects", o.name, {
+                const gameObj = map.createFromObjects('objects', o.name, {
                     key: gidMap[o.gid]
                 });
 
@@ -118,14 +118,14 @@ class GameScene extends Phaser.Scene {
             );
         }
 
-        this.input.on("pointerup", checkObjectSelection, this);
+        this.input.on('pointerup', checkObjectSelection, this);
     }
 
     update() {}
 }
 
-function checkObjectSelection(pointer) {
-    let objectLayer = map.getObjectLayer("objects");
+async function checkObjectSelection(pointer) {
+    let objectLayer = map.getObjectLayer('objects');
     if (!objectLayer) return;
 
     // ensure we take the camera position into account
@@ -135,7 +135,7 @@ function checkObjectSelection(pointer) {
     let selectedObject = null;
     for (let object of objectLayer.objects) {
         // check if object is a polygon
-        if (object.hasOwnProperty("polyline")) {
+        if (object.hasOwnProperty('polyline')) {
             // each point on the polyline is relative to it's parent object's position,
             // so need to map them to world values
             let points = object.polyline.map(value => {
@@ -164,13 +164,13 @@ function checkObjectSelection(pointer) {
         }
     }
     if (selectedObject) {
-        if (selectedObject.properties["description"]) {
+        if (selectedObject.properties['description']) {
             console.log(
-                "selected object description:" +
-                    selectedObject.properties["description"]
+                'selected object description:' +
+                    selectedObject.properties['description']
             );
-        } else if (selectedObject.properties["onuse"]) {
-            actions.run("use", selectedObject);
+        } else if (selectedObject.properties['onuse']) {
+            await actions.run('use', selectedObject);
         }
     }
 }
@@ -187,29 +187,37 @@ window.game = game; // for easy debugging
 let map = null;
 
 // init object cache, for easy object lookup
-const cache = new objectCache("object-cache");
+const cache = new objectCache('object-cache');
 
 const actions = new Actions(game, cache);
 
+async function timeout(ms) {
+    return new Promise(resolve => {
+        setTimeout(resolve, ms);
+    });
+}
+
 // register some built-in actions
 
-actions.add("turnon", (game, cache, _obj) => {
+actions.add('turnon', async (game, cache, _obj) => {
     const obj = cache.get(_obj);
     console.log(`[actions.turnon] ${obj.name}`);
     if (obj.data.list.onturnon) {
-        actions.eval(obj.data.list.onturnon);
+        await timeout(1000);
+        await actions.eval(obj.data.list.onturnon);
     }
 });
 
-actions.add("use", (game, cache, _obj) => {
+actions.add('use', async (game, cache, _obj) => {
     const obj = cache.get(_obj);
     console.log(`[actions.use] ${obj.name} -> ${obj.data.list.onuse}`);
     if (obj.data.list.onuse) {
-        actions.eval(obj.data.list.onuse);
+        await timeout(1000);
+        await actions.eval(obj.data.list.onuse);
     }
 });
 
-actions.add("setsprite", (game, cache, _obj, sprite) => {
+actions.add('setsprite', async (game, cache, _obj, sprite) => {
     const obj = cache.get(_obj);
     console.log(`[actions.setsprite] ${obj.name} to ${sprite}`);
     obj.setTexture(sprite);
