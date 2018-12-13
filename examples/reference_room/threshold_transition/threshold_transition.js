@@ -32,6 +32,8 @@ let player = {
 function preload() {
     // load the tileset image which is just a single tile for the background room
     this.load.image("room1_img", "../../assets/images/room1.png");
+    this.load.image("door_cover1", "../../assets/images/door-cover1.png");
+    this.load.image("door_cover2", "../../assets/images/door-cover2.png");
     this.load.image("window", "../../assets/images/window.png");
 
     // load the tilemap exported from Tiled
@@ -93,6 +95,14 @@ function create() {
 
     player.image = this.physics.add.image(500, 464.5, "target");
     //player.image = this.add.sprite(0, 0, "target");
+
+    map.createFromObjects("objects", "room1_door_left_cover", {
+        key: "door_cover1"
+    });
+    map.createFromObjects("objects", "room2_door_right_cover", {
+        key: "door_cover2"
+    });
+
     moveToRoom(this, { x: 500, y: 464.5 }, roomMap);
 
     this.input.on("pointerup", checkObjectSelection, this);
