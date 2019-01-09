@@ -34,6 +34,8 @@ let player = {
 function preload() {
     // load the tileset image which is just a single tile for the background room
     this.load.image("room1_img", "../../assets/images/room1.png");
+    this.load.image("door_cover1", "../../assets/images/door-cover1.png");
+    this.load.image("door_cover2", "../../assets/images/door-cover2.png");
     this.load.image("window", "../../assets/images/window.png");
 
     // Load the player sprite sheet
@@ -124,10 +126,17 @@ function create() {
     player.image.scaleX = 2;
     player.image.scaleY = 2;
 
-    // Start the walking animation
-    player.image.anims.play("walk");
+    map.createFromObjects("objects", "room1_door_left_cover", {
+        key: "door_cover1"
+    });
+    map.createFromObjects("objects", "room2_door_right_cover", {
+        key: "door_cover2"
+    });
 
     moveToRoom(this, { x: 500, y: 700 });
+
+    // Start the idle animation
+    player.image.anims.play("idle");
 
     this.cameras.main.startFollow(player.image);
 
@@ -167,6 +176,7 @@ function update() {
                 );
                 player.state = STATES.IDLE;
                 player.image.setVelocityX(0);
+                player.image.anims.play("idle");
                 player.image.x = player.thresholdDestination.x;
                 this.cameras.main.startFollow(player.image);
             }

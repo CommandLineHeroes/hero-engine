@@ -242,6 +242,30 @@
                  "width":0,
                  "x":-191,
                  "y":292
+                }, 
+                {
+                 "gid":5,
+                 "height":929,
+                 "id":32,
+                 "name":"room1_door_left_cover",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":162,
+                 "x":0,
+                 "y":928
+                }, 
+                {
+                 "gid":6,
+                 "height":929,
+                 "id":35,
+                 "name":"room2_door_right_cover",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":193,
+                 "x":-192,
+                 "y":928
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -249,7 +273,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":28,
+ "nextobjectid":36,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.1.6",
@@ -306,6 +330,32 @@
          "tilecount":1,
          "tileheight":83,
          "tilewidth":64
+        }, 
+        {
+         "columns":1,
+         "firstgid":5,
+         "image":"..\/images\/door-cover1.png",
+         "imageheight":929,
+         "imagewidth":162,
+         "margin":0,
+         "name":"door-cover1",
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":929,
+         "tilewidth":162
+        }, 
+        {
+         "columns":1,
+         "firstgid":6,
+         "image":"..\/images\/door-cover2.png",
+         "imageheight":929,
+         "imagewidth":193,
+         "margin":0,
+         "name":"door-cover2",
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":929,
+         "tilewidth":193
         }],
  "tilewidth":32,
  "type":"map",
