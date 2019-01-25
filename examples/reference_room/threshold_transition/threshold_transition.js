@@ -20,19 +20,31 @@ let map = null;
 
 const STATES = {
     IDLE: "IDLE",
-    ROOM_TRANSITION: "ROOM_TRANSITION"
+    ROOM_TRANSITION: "ROOM_TRANSITION",
+    MOVING: "MOVING"
 };
 
 let rooms = [];
 let player = {
     state: STATES.IDLE,
-    movementSpeed: 600
+    movementSpeed: 600,
+    direction: 1
 };
 
 function preload() {
     // load the tileset image which is just a single tile for the background room
     this.load.image("room1_img", "../../assets/images/room1.png");
+    this.load.image("door_cover1", "../../assets/images/door-cover1.png");
+    this.load.image("door_cover2", "../../assets/images/door-cover2.png");
     this.load.image("window", "../../assets/images/window.png");
+
+    // Load the player sprite sheet
+    // Added 3px of empty space to each side of each frame of animation to prevent webGL pixel bleeding
+    this.load.spritesheet(
+        "player_sheet",
+        "../../assets/images/player_sheet.png",
+        { frameWidth: 78, frameHeight: 103 }
+    );
 
     // load the tilemap exported from Tiled
     this.load.tilemapTiledJSON(
@@ -91,9 +103,42 @@ function create() {
     // create sprites for the objects layer
     map.createFromObjects("objects", "window", { key: "window" });
 
-    player.image = this.physics.add.image(500, 464.5, "target");
+    // Create the player sprite animation config
+    let walkConfig = {
+        key: "walk",
+        frames: this.anims.generateFrameNumbers("player_sheet", {}),
+        repeat: -1
+    };
+    let idleConfig = {
+        key: "idle",
+        frames: [{ key: "player_sheet", frame: 1 }],
+        repeat: -1
+    };
+
+    // Create the walk animation
+    this.anims.create(walkConfig);
+    this.anims.create(idleConfig);
+
+    player.image = this.physics.add.sprite(500, 700, "player");
     //player.image = this.add.sprite(0, 0, "target");
-    moveToRoom(this, { x: 500, y: 464.5 }, roomMap);
+
+    // Make player a bit bigger
+    player.image.scaleX = 2;
+    player.image.scaleY = 2;
+
+    map.createFromObjects("objects", "room1_door_left_cover", {
+        key: "door_cover1"
+    });
+    map.createFromObjects("objects", "room2_door_right_cover", {
+        key: "door_cover2"
+    });
+
+    moveToRoom(this, { x: 500, y: 700 });
+
+    // Start the idle animation
+    player.image.anims.play("idle");
+
+    this.cameras.main.startFollow(player.image);
 
     this.input.on("pointerup", checkObjectSelection, this);
 }
@@ -111,8 +156,44 @@ function update() {
                     player.image.x <= player.targetDestination.x) ||
                 player.image.body.velocity.x === 0
             ) {
+                roomBounds = getRoomBoundsAtPosition(
+                    player.thresholdDestination.x,
+                    player.thresholdDestination.y
+                );
+
+                let cam = this.cameras.main;
+
+                cam.setBounds(
+                    roomBounds.x,
+                    roomBounds.y,
+                    roomBounds.width,
+                    roomBounds.height
+                );
+                cam.pan(
+                    player.thresholdDestination.x,
+                    player.thresholdDestination.y,
+                    "Sine.easeInOut"
+                );
                 player.state = STATES.IDLE;
                 player.image.setVelocityX(0);
+                player.image.anims.play("idle");
+                player.image.x = player.thresholdDestination.x;
+                this.cameras.main.startFollow(player.image);
+            }
+
+            break;
+
+        case STATES.MOVING:
+            if (
+                (player.image.body.velocity.x > 0 &&
+                    player.image.x >= player.targetDestination.x) ||
+                (player.image.body.velocity.x < 0 &&
+                    player.image.x <= player.targetDestination.x) ||
+                player.image.body.velocity.x === 0
+            ) {
+                player.state = STATES.IDLE;
+                player.image.setVelocityX(0);
+                player.image.anims.play("idle");
             }
 
             break;
@@ -160,34 +241,58 @@ function getObjectByName(objectLayer, objectName) {
  * Moves the camera to the destination, and sets the camera bounds to roomBounds.
  * Moves the player to the destination.
  *
- * If roomBounds is not passed, it will look up which roomBounds include the
- * given destination.
+ * Look up which roomBounds include the given destination.
  */
-function moveToRoom(_this, destination, roomBounds) {
-    if (!roomBounds) {
-        roomBounds = getRoomBoundsAtPosition(destination.x, destination.y);
+function moveToRoom(_this, destination, thresholdPosition) {
+    if (!thresholdPosition) {
+        thresholdPosition = destination;
     }
-
-    let cam = _this.cameras.main;
-
-    let oldCamScrollX = cam.scrollX;
-
-    cam.setBounds(
-        roomBounds.x,
-        roomBounds.y,
-        roomBounds.width,
-        roomBounds.height
-    );
-    cam.pan(destination.x, destination.y, "Sine.easeInOut");
-
-    let newTargetPlayerPos = destination;
-
     player.state = STATES.ROOM_TRANSITION;
-    player.targetDestination = destination;
+    player.thresholdDestination = destination;
+    player.targetDestination = thresholdPosition;
+
+    player.image.anims.play("walk");
+
     if (player.image.x < player.targetDestination.x) {
         player.image.setVelocityX(player.movementSpeed);
+        if (player.direction === -1) {
+            player.direction *= -1;
+            player.image.toggleFlipX();
+        }
     } else if (player.image.x > player.targetDestination.x) {
         player.image.setVelocityX(-player.movementSpeed);
+        if (player.direction === 1) {
+            player.direction *= -1;
+            player.image.toggleFlipX();
+        }
+    }
+}
+
+/*
+ * Move the player to the given destination.
+ */
+function move(destination) {
+    player.state = STATES.MOVING;
+    player.targetDestination = destination;
+    if (
+        !player.image.anims.isPlaying ||
+        player.image.anims.currentAnim.key !== "walk"
+    ) {
+        player.image.anims.play("walk");
+    }
+
+    if (player.image.x < player.targetDestination.x) {
+        player.image.setVelocityX(player.movementSpeed);
+        if (player.direction === -1) {
+            player.direction *= -1;
+            player.image.toggleFlipX();
+        }
+    } else if (player.image.x > player.targetDestination.x) {
+        player.image.setVelocityX(-player.movementSpeed);
+        if (player.direction === 1) {
+            player.direction *= -1;
+            player.image.toggleFlipX();
+        }
     }
 }
 
@@ -250,13 +355,17 @@ function checkObjectSelection(pointer) {
                     objectLayer,
                     getObjectProperty(selectedObject, "destination")
                 );
+                let thresholdPosition = {
+                    x: selectedObject.x,
+                    y: selectedObject.y
+                };
 
-                let cameraBoundsDest = getRoomBoundsAtPosition(
-                    thresholdDestination.x,
-                    thresholdDestination.y
-                );
-                moveToRoom(this, thresholdDestination);
+                moveToRoom(this, thresholdDestination, thresholdPosition);
                 break;
         }
+    } else {
+        let clickPosition =
+            this.input.activePointer.x + this.cameras.main.scrollX;
+        move({ x: clickPosition });
     }
 }
