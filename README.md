@@ -1,5 +1,10 @@
 ![Hero Engine](https://user-images.githubusercontent.com/3926730/45370277-e1fd9300-b5b5-11e8-80f9-c4249af4d5b2.png)
 
+# Arcade Game Focus
+
+In addition to the Hero Engine and adventure game, we are also making a fast paced arcade game called "CLH Bash".  The core devs are focusing our time on this game right now so if you're interested in contributing head over to:
+
+**[Command Line Heros: Bash!](https://github.com/CommandLineHeroes/clh-bash)**
 
 # Hero Engine
 
