@@ -26,6 +26,12 @@ We are creating a new engine because we couldn't find any existing open source H
 
     npm run examples
 
+## Docker
+
+    docker-compose up
+
+Examples of the game will be at http://localhost:3000 and the Browsersync UI will be at http://localhost:3001.
+
 ## Contribute
 
 Everyone is invited to contribute to this project.  All types of contributions are welcome.  We share the same inclusivity values of the [P5.js community](https://p5js.org/community/).
