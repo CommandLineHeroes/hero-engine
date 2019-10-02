@@ -1,6 +1,8 @@
 /node_modules
+/tags
 .idea
 npm-debug.log
 dist
 package-lock.json
 .DS_Store
+*~
