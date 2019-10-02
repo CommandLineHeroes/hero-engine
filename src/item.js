@@ -24,4 +24,4 @@ const item = class {
     }
 };
 
-export {item};
+export { item };

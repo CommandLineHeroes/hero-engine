@@ -1,5 +1,4 @@
-import { item } from './item.js';
-import { inventory, container } from './inventory.js';
+import { inventory } from './inventory.js';
 
 /** @constant
     @type {class}
