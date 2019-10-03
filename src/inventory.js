@@ -1,5 +1,3 @@
-import { item } from './item.js';
-
 /** @constant
     @type {class}
     @default

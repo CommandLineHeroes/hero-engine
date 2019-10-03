@@ -1,5 +1,3 @@
-import { inventory } from './inventory.js';
-
 /** @constant
     @type {class}
     @default
