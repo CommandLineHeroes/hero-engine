@@ -78,8 +78,8 @@ function create() {
     player = this.add.sprite(300, 700, "player");
 
     // Make player a bit bigger
-    player.scaleX = 2;
-    player.scaleY = 2;
+    player.scaleX = 8;
+    player.scaleY = 8;
 
     // Start the walking animation
     player.anims.play("walk");
