@@ -11,8 +11,10 @@ In addition to the Hero Engine and adventure game, we are also making a fast pac
 The Hero Engine aims to be an open-source HTML5 adventure game creation engine based on [Tiled](https://www.mapeditor.org/) and [Phaser3](https://phaser.io/).
 
 We're calling it a meta-engine because it is not a full game engine on it's own, but a layer on top of Phaser3 that makes it easy to create [Adventure Games](https://en.wikipedia.org/wiki/Adventure_game).
-The engine will provide game developers with an integration between Tiled and Phaser3 that will allow for easy adventure-game-like level creation.  As well as common functions and UI elements that are common among all
-adventure games.  If you're not sure what an adventure game is, [Monkey Island](https://en.wikipedia.org/wiki/The_Secret_of_Monkey_Island), is a great example of the adventure game genre.
+
+The engine will provide game developers with an integration between Tiled and Phaser3 that will allow for easy adventure-game-like level creation.  As well as common functions and UI elements that are common among all adventure games.  
+
+If you're not sure what an adventure game is, [Monkey Island](https://en.wikipedia.org/wiki/The_Secret_of_Monkey_Island), is a great example of the adventure game genre.
 
 This engine will be used to create "Command Line Heroes: The Game" announced on [Episode 1](https://www.redhat.com/en/command-line-heroes/season-2/press-start) of Season 2 of the [Command Line Heroes Podcast](https://www.redhat.com/en/command-line-heroes).  See more about the game [below](#command-line-heroes-the-game).
 
@@ -34,11 +36,11 @@ Examples of the game will be at http://localhost:3000 and the Browsersync UI wil
 
 ## Contribute
 
-Everyone is invited to contribute to this project.  All types of contributions are welcome.  We share the same inclusivity values of the [P5.js community](https://p5js.org/community/).
+Everyone is invited to contribute to this project. All types of contributions are welcome. We share the same inclusivity values of the [P5.js community](https://p5js.org/community/).
 
-Before we can start work on the actual Command Line Heroes adventure game we need to complete at least the first two milestones listed below.  The best way you can help right now is by working on one of the [issues](https://github.com/CommandLineHeroes/hero-engine/issues) in the Reference Room milestone.
+Before we can start work on the actual Command Line Heroes adventure game we need to complete at least the first two milestones listed below. The best way you can help right now is by working on one of the [issues](https://github.com/CommandLineHeroes/hero-engine/issues) in the Reference Room milestone.
 
-We are also learning Phaser3 and Tiled as we go so the The Reference Room is a proof of concept for the base level features we need for a bare bones adventure game organized into a series of examples.
+We are also learning Phaser3 and Tiled as we go so the 'The Reference Room' is a proof of concept for the base level features we need for a bare bones adventure game organized into a series of examples.
 
 ### Milestones
 
